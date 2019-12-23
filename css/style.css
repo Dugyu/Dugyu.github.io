@@ -36,7 +36,7 @@ p.nav-section
 
 .button_container {
     position: fixed;
-    top: 5%;
+    top: 50px;
     left: 2%;
     height: var(--button-height);
     width: var(--button-width);
