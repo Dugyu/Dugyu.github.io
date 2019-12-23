@@ -23,8 +23,6 @@ p{
 h1.page-title{
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
-    margin-top: 5%;
-    text-align: center;
 }
 
 p.nav-section
@@ -37,10 +35,23 @@ p.nav-section
 
 
 .sitename-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 100%;
   position: fixed;
+  z-index: 100;
+  background-color: white;
 }
 
+.sitename{
+}
 
+.projects-container{
+  display: flex;
+  flex-direction: column;
+}
 
 .button_container {
     position: fixed;
@@ -110,7 +121,7 @@ top: 22px;
 .overlay.open {
     opacity: .9;
     visibility: visible;
-    width: 60%;
+    width: 90%;
 }
 .overlay.open li {
 -webkit-animation: fadeInRight .5s ease forwards;
