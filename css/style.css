@@ -2,7 +2,8 @@
     --text-color-main:black;
     --text-color-accent:black;
     --color-light:white;
-    --button-height:24px;
+    --color-dark:black;
+    --button-height:30px;
     --button-width:30px;
 }
 
@@ -18,7 +19,7 @@ p{
 h1.page-title{
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
-    margin-top: 50px;
+    margin-top: 10%;
     text-align: center;
 }
 
@@ -37,7 +38,7 @@ p.nav-section
 
 .button_container {
     position: fixed;
-    top: 50px;
+    top: 30%;
     left: 2%;
     height: var(--button-height);
     width: var(--button-width);
@@ -90,7 +91,7 @@ top: 22px;
 
 .overlay {
     position: fixed;
-    background: black;
+    background: var(--color-dark);
     top: 0;
     left: 0;
     width: 0%;
@@ -169,7 +170,7 @@ top: 22px;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     height: 3px;
-    background: #FFF;
+    background:var(--color-light);
     transition: .35s;
   }
   
