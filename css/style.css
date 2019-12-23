@@ -38,8 +38,8 @@ p.nav-section
 
 .button_container {
     position: fixed;
-    top: 30%;
-    left: 2%;
+    bottom: 5%;
+    right: 3%;
     height: var(--button-height);
     width: var(--button-width);
     cursor: pointer;
