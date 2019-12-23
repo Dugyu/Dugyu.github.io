@@ -1,7 +1,8 @@
 :root {
     --text-color-main:black;
     --text-color-accent:black;
-    --button-height:27px;
+    --color-light:white;
+    --button-height:30px;
     --button-width:35px;
 }
 
@@ -47,28 +48,28 @@ p.nav-section
 
 .button_container:hover {
     opacity: .7;
-  }
+}
 
 .button_container.active .top {
 -webkit-transform: translateY(11px) translateX(0) rotate(45deg);
         transform: translateY(11px) translateX(0) rotate(45deg);
-background: #FFF;
+background: var(--color-light);
 }
 .button_container.active .middle {
 opacity: 0;
-background: #FFF;
+background: var(--color-light);
 }
 
 .button_container.active .bottom {
 -webkit-transform: translateY(-11px) translateX(0) rotate(-45deg);
         transform: translateY(-11px) translateX(0) rotate(-45deg);
-background: #FFF;
+background: var(--color-light);
 }
 
 .button_container span {
 background:var(--text-color-accent);
 border: none;
-height: 5px;
+height: 3px;
 width: 100%;
 position: absolute;
 top: 0;
@@ -152,7 +153,7 @@ top: 22px;
   .overlay ul li a {
     display: block;
     position: relative;
-    color: #FFF;
+    color: var(--color-light);
     text-decoration: none;
     overflow: hidden;
   }
