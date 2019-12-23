@@ -93,7 +93,7 @@ top: 22px;
     position: fixed;
     background: var(--color-dark);
     top: 0;
-    left: 0;
+    right: 0;
     width: 0%;
     height: 100%;
     opacity: 0;
@@ -104,7 +104,7 @@ top: 22px;
 .overlay.open {
     opacity: .9;
     visibility: visible;
-    width: 100%;
+    width: 60%;
 }
 .overlay.open li {
 -webkit-animation: fadeInRight .5s ease forwards;
