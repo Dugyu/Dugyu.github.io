@@ -8,7 +8,7 @@ p{
 }
 
 h1.page-title{
-    font-family: 'Overpass', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 800;
     margin-top: 50px;
     text-align: center;
@@ -16,6 +16,7 @@ h1.page-title{
 
 p.nav-section
 {
-    font-family: 'Overpass', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
     text-align: center;
 }
