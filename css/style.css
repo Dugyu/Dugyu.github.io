@@ -19,7 +19,7 @@ p{
 h1.page-title{
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
-    margin-top: 10%;
+    margin-top: 5%;
     text-align: center;
 }
 
@@ -124,17 +124,17 @@ top: 22px;
 -webkit-animation-delay: .50s;
         animation-delay: .50s;
 }
-  .overlay nav {
-    position: relative;
-    height: 70%;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    font-size: 50px;
-    font-family: 'Vollkorn', serif;
-    font-weight: 400;
-    text-align: center;
-  }
+.overlay nav {
+position: relative;
+height: 70%;
+top: 50%;
+-webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+font-size: 50px;
+font-family: 'Vollkorn', serif;
+font-weight: 400;
+text-align: center;
+}
   .overlay ul {
     list-style: none;
     padding: 0;
@@ -146,7 +146,7 @@ top: 22px;
   .overlay ul li {
     display: block;
     height: 25%;
-    height: calc(100% / 4);
+    height: calc(100% / 2);
     min-height: 50px;
     position: relative;
     opacity: 0;
