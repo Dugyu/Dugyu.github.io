@@ -19,8 +19,14 @@ h1.page-title{
 }
 
 h5{
-  font-family: 'Times New Roman', serif;
-
+  font-family: cormorant-garamond, serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+}
+h5.title-test2{
+  font-family: rockwell, serif;
+  font-weight: 400;
   letter-spacing: 0.05em;
   word-spacing: 0.1em;
 }
@@ -40,7 +46,7 @@ p.project-description-2{
   position: relative; 
   left:15%;
   width: 70%;
-  font-family: 'Helvetica', sans-serif;
+  font-family: cormorant-garamond, sans-serif;
   font-weight: 400;
 }
 
@@ -48,16 +54,10 @@ p.project-description-3{
   position: relative; 
   left:15%;
   width: 70%;
-  font-family: 'Times New Roman', serif;
+  font-family: rockwell, serif;
   font-weight: 300;
 }
-p.nav-section
-{
-    font-family: 'Raleway', sans-serif;
-    font-weight: 800;
-    text-align: center;
-    color: gainsboro;
-}
+
 
 .sitename-container{
   display: flex;
