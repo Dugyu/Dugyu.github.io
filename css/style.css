@@ -10,13 +10,38 @@
 
 body
 {
-    font-family: 'Cormorant', serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1.page-title{
-    font-family: 'Raleway', sans-serif;
-    font-weight: 800;
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
+
+h5{
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+}
+
+img.project-cover{
+  cursor: pointer;
+}
+
+p.project-description{
+  position: relative; 
+  left:15%;
+  width: 70%;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 300;
+}
+p.project-description-2{
+  position: relative; 
+  left:15%;
+  width: 70%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
 
 p.nav-section
 {
@@ -49,6 +74,16 @@ p.nav-section
   display: flex;
   flex-direction: column;
 }
+
+.project-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
 
 .button_container {
     position: fixed;
@@ -145,9 +180,6 @@ height: 70%;
 top: 50%;
 -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
-font-size: 50px;
-font-family: 'Vollkorn', serif;
-font-weight: 400;
 text-align: center;
 }
   .overlay ul {
