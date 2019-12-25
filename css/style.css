@@ -29,7 +29,7 @@ img.project-cover{
   cursor: pointer;
 }
 
-p.project-description{
+.project-description p{
   position: relative; 
   left:15%;
   width: 70%;
