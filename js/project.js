@@ -51,5 +51,15 @@ class Project{
         this.parentElement.appendChild(project_wrapper);
     }
 
+    addProjectLinkOnMenu(_ulNodeId, _totalNum){
+        var project_link = document.createElement("li");
+        project_link.style.height = "calc(100% / " + _totalNum + ")";
+        var project_link_a = document.createElement("a");
+        project_link_a.innerHTML = this.data.title;
+        project_link_a.setAttribute("href",this.data.title.toLowerCase()+".html")
+        project_link.appendChild(project_link_a);
+        var ulNode = document.getElementById(_ulNodeId);
+        ulNode.appendChild(project_link);
+    }
 
 }
