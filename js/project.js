@@ -32,7 +32,10 @@ class Project{
         var title = document.createElement("div");
         title.setAttribute("class","my-5 project-title");
         var title_text = document.createElement("h5");
-        title_text.innerHTML = this.data.title.toUpperCase();
+        var title_link = document.createElement("a");
+        title_link.innerHTML = this.data.title.toUpperCase();
+        title_link.setAttribute("href",this.data.title.toLowerCase()+".html");
+        title_text.appendChild(title_link);
         title.appendChild(title_text);
 
         var description = document.createElement("div");

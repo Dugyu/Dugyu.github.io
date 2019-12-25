@@ -13,30 +13,9 @@ body
   font-family: 'Montserrat', sans-serif;
 }
 
-h1.page-title{
-  font-weight: 700;
-  letter-spacing: 0.03em;
-}
 
-h5{
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  word-spacing: 0.1em;
-}
 
-img.project-cover{
-  cursor: pointer;
-}
-
-.project-description p{
-  position: relative; 
-  left:15%;
-  width: 70%;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-}
-
+/* Site Name DUGYU */
 .sitename-container{
   display: flex;
   align-items: center;
@@ -49,6 +28,13 @@ img.project-cover{
   background-color: white;
 }
 
+h1.page-title{
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+
+/* Project Catalog */
 .container{
   position: relative;
 }
@@ -68,9 +54,33 @@ img.project-cover{
   flex-direction: column;
 }
 
+img.project-cover{
+  cursor: pointer;
+}
 
 
+h5{
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+}
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.project-description p{
+  position: relative; 
+  left:15%;
+  width: 70%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+
+/* Menu Button */
 .button_container {
     position: fixed;
     bottom: 5%;
@@ -87,19 +97,18 @@ img.project-cover{
 }
 
 .button_container.active .top {
--webkit-transform: translateY(11px) translateX(0) rotate(45deg);
-        transform: translateY(11px) translateX(0) rotate(45deg);
-background: var(--color-light);
+    -webkit-transform: translateY(11px) translateX(0) rotate(45deg);
+    transform: translateY(11px) translateX(0) rotate(45deg);
+    background: var(--color-light);
 }
 .button_container.active .middle {
-opacity: 0;
-background: var(--color-light);
+    opacity: 0;
+    background: var(--color-light);
 }
-
 .button_container.active .bottom {
--webkit-transform: translateY(-11px) translateX(0) rotate(-45deg);
-        transform: translateY(-11px) translateX(0) rotate(-45deg);
-background: var(--color-light);
+    -webkit-transform: translateY(-11px) translateX(0) rotate(-45deg);
+    transform: translateY(-11px) translateX(0) rotate(-45deg);
+    background: var(--color-light);
 }
 
 .button_container span {
@@ -123,6 +132,7 @@ top: 22px;
   
 
 
+/* Menu Overlay */
 
 .overlay {
     position: fixed;
