@@ -34,7 +34,7 @@ class Project{
         var title_text = document.createElement("h5");
         var title_link = document.createElement("a");
         title_link.innerHTML = this.data.title.toUpperCase();
-        title_link.setAttribute("href",this.data.title.toLowerCase()+".html");
+        title_link.setAttribute("href","./"+ this.data.title.toLowerCase()+".html");
         title_text.appendChild(title_link);
         title.appendChild(title_text);
 
@@ -56,7 +56,7 @@ class Project{
         project_link.style.height = "calc(100% / " + _totalNum + ")";
         var project_link_a = document.createElement("a");
         project_link_a.innerHTML = this.data.title;
-        project_link_a.setAttribute("href",this.data.title.toLowerCase()+".html")
+        project_link_a.setAttribute("href","./"+ this.data.title.toLowerCase()+".html")
         project_link.appendChild(project_link_a);
         var ulNode = document.getElementById(_ulNodeId);
         ulNode.appendChild(project_link);
