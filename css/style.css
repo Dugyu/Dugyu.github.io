@@ -17,7 +17,7 @@ body
 
 
 /* Site Name DUGYU */
-.sitename-container{
+#sitename-container{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,7 @@ body
   background-color: white;
 }
 
-h1.page-title{
+.sitename{
   font-weight: 700;
   letter-spacing: 0.03em;
 }
