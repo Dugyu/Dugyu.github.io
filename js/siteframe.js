@@ -74,9 +74,14 @@ class Siteframe{
     initMenu(){
         this.catalogData.forEach(e => {
             var project = new Project(e);
-            project.addProjectLinkOnMenu('project-menu',this.catalogData.length);
+            project.addProjectLinkOnMenu('menu',this.catalogData.length);
             this.projectList.push(project);
         });
+
+        $('#menu-toggle').click(function() {
+            $(this).toggleClass('active');
+            $('#menu-overlay').toggleClass('open');
+           });
     }
 
 
