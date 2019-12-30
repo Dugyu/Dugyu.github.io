@@ -1,25 +1,21 @@
 /*
  * Project - The wrapper class for project in catalog
- * @param _parentElement 	-- the HTML element in which to render project image, title and description
  * @param _data						-- the object that contains image name, title, description
  */
 
 class Project{
 
-    parentEleId;
     data;
-    parentElement;
 
-    constructor(_parentEleId,_data)
+    constructor(_data)
     {
-        this.parentEleId = _parentEleId;
         this.data = _data;
-        this.parentElement = document.getElementById(this.parentEleId);
-        this.initProject();
     }
 
 
-    initProject(){
+    addProjectToCatalog(_parentEleId){
+        var parentElement = document.getElementById(_parentEleId);
+
         var project_wrapper = document.createElement("div");
         project_wrapper.setAttribute("class","project-wrapper mb-5");
         project_wrapper.setAttribute("data-aos", "fade-in");
@@ -48,7 +44,7 @@ class Project{
         project_wrapper.appendChild(title);
         project_wrapper.appendChild(description);
 
-        this.parentElement.appendChild(project_wrapper);
+        parentElement.appendChild(project_wrapper);
     }
 
     addProjectLinkOnMenu(_ulNodeId, _totalNum){

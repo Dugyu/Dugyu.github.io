@@ -17,7 +17,7 @@ body
 
 
 /* Site Name DUGYU */
-#sitename-container{
+.sitename_container{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,7 +40,7 @@ body
   position: relative;
 }
 
-.projects-container{
+.catalog{
   position: relative;
   top: var(--site-gap);
   width: 100%;
@@ -48,6 +48,13 @@ body
   flex-direction: column;
 }
 
+.single_project{
+  position: relative;
+  top: var(--site-gap);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .project-wrapper{
   display: flex;
   align-items: center;

@@ -1,4 +1,6 @@
-var sitename_container = document.getElementById('sitename-container');
+$('#toggle').click(function() {
+    $(this).toggleClass('active');
+    $('#overlay').toggleClass('open');
+   });
 
-var sitename_div =  document.createElement('div');
-sitename_div.setAttribute('class', "sitename");
+
