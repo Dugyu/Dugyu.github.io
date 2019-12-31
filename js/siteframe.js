@@ -76,7 +76,7 @@ class Siteframe{
     initMenu(){
         this.catalogData.forEach(e => {
             var project = new Project(e, this.path);
-            project.addProjectLinkOnMenu('menu',this.catalogData.length);
+            project.addLinkOnMenu('menu',this.catalogData.length);
             this.projectList.push(project);
         });
 
@@ -85,7 +85,7 @@ class Siteframe{
             $('#menu-overlay').toggleClass('open');
            });
 
-        $('.project_link').click(function(e){
+        $('.menu_link').click(function(e){
             e.preventDefault();
 
             $('#menu-toggle').toggleClass('active');
@@ -99,7 +99,7 @@ class Siteframe{
 
     createContentOfCatalog(){
         this.projectList.forEach(project => {
-            project.addProjectToCatalog(this.contentId);
+            project.addToCatalog(this.contentId);
         })
     }
 }

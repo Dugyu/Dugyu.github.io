@@ -9,17 +9,17 @@ class Project{
 
     data;
     path;
-    projectPath;
+    dataPath;
 
     constructor(_data, _path="")
     {
         this.data = _data;
         this.path = _path;
-        this.initProjectPath();
+        this.initDataPath();
     }
 
 
-    addProjectToCatalog(_parentEleId){
+    addToCatalog(_parentEleId){
         var parentElement = document.getElementById(_parentEleId);
 
         var project_wrapper = document.createElement("div");
@@ -27,7 +27,7 @@ class Project{
         project_wrapper.setAttribute("data-aos", "fade-in");
         
         var cover_img = document.createElement("img");
-        cover_img.setAttribute("src", this.projectPath + "static/"+ this.data.cover_img);
+        cover_img.setAttribute("src", this.dataPath + "static/"+ this.data.cover_img);
         cover_img.setAttribute("alt",this.data.cover_img);
         cover_img.setAttribute("class", "img-fluid project-cover");
 
@@ -36,7 +36,7 @@ class Project{
         var title_text = document.createElement("h5");
         var title_link = document.createElement("a");
         title_link.innerHTML = this.data.title.toUpperCase();
-        title_link.setAttribute("href", this.projectPath);
+        title_link.setAttribute("href", this.dataPath);
         title_text.appendChild(title_link);
         title.appendChild(title_text);
 
@@ -53,20 +53,20 @@ class Project{
         parentElement.appendChild(project_wrapper);
     }
 
-    addProjectLinkOnMenu(_ulNodeId, _totalNum){
-        var project_link = document.createElement("li");
-        project_link.style.height = "calc(100% / " + _totalNum + ")";
-        var project_link_a = document.createElement("a");
-        project_link_a.innerHTML = this.data.title;
-        project_link_a.setAttribute("class","project_link");
-        project_link_a.setAttribute("href",this.projectPath);
-        project_link.appendChild(project_link_a);
+    addLinkOnMenu(_ulNodeId, _totalNum){
+        var link = document.createElement("li");
+        link.style.height = "calc(100% / " + _totalNum + ")";
+        var link_a = document.createElement("a");
+        link_a.innerHTML = this.data.title;
+        link_a.setAttribute("class","menu_link");
+        link_a.setAttribute("href",this.dataPath);
+        link.appendChild(link_a);
         var ulNode = document.getElementById(_ulNodeId);
-        ulNode.appendChild(project_link);
+        ulNode.appendChild(link);
     }
 
-    initProjectPath(){
-        this.projectPath = this.path + "projects/" + this.data.title.toLowerCase() + "/";
+    initDataPath(){
+        this.dataPath = this.path + "projects/" + this.data.title.toLowerCase() + "/";
     }
 
 }
