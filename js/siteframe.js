@@ -2,20 +2,22 @@
  * Siteframe - The wrapper class for site commons
  * @param _catalogData						-- the object that contains all project data
  * @param _typeClass					-- string, page type: "catalog", "single_project"
-
+ * @param _path                        -- string, the relative path to index.html, default to ""
  */
 class Siteframe{
 
     catalogData;
     projectList = [];
     typeClass;
+    path;
 
     contentId = "content-container";
 
-    constructor(_catalogData, _typeClass)
+    constructor(_catalogData, _typeClass, _path="")
     {
         this.catalogData = _catalogData;
         this.typeClass = _typeClass;
+        this.path = _path;
         this.initSiteCommons();
         this.initContentCommons(_typeClass);
         this.initMenu();
@@ -73,7 +75,7 @@ class Siteframe{
 
     initMenu(){
         this.catalogData.forEach(e => {
-            var project = new Project(e);
+            var project = new Project(e, this.path);
             project.addProjectLinkOnMenu('menu',this.catalogData.length);
             this.projectList.push(project);
         });
