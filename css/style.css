@@ -155,7 +155,7 @@ top: 22px;
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity .35s, visibility .35s, width .35s;
+    transition: opacity .3s, visibility .3s, width .3s;
     overflow: hidden;
     z-index: 200;
   }
@@ -165,14 +165,14 @@ top: 22px;
     width: 90%;
 }
 .overlay.open li {
-    -webkit-animation: fadeInRight .5s ease forwards;
-            animation: fadeInRight .5s ease forwards;
-    -webkit-animation-delay: .35s;
-            animation-delay: .35s;
+    -webkit-animation: fadeInRight .2s ease forwards;
+            animation: fadeInRight .2s ease forwards;
+    -webkit-animation-delay: .3s;
+            animation-delay: .3s;
 }
 .overlay.open li:nth-of-type(n+1) {
-    -webkit-animation-delay: calc(.05 * n + .35)s;
-            animation-delay: calc(.05 * n + .35)s;
+    -webkit-animation-delay: calc(.05 * n + .3)s;
+            animation-delay: calc(.05 * n + .3)s;
 }
 
 .overlay nav {

@@ -84,6 +84,16 @@ class Siteframe{
             $(this).toggleClass('active');
             $('#menu-overlay').toggleClass('open');
            });
+
+        $('.project_link').click(function(e){
+            e.preventDefault();
+
+            $('#menu-toggle').toggleClass('active');
+            $('#menu-overlay').toggleClass('open')
+
+            var linkUrl = $(this).attr('href');
+            setTimeout(function(url) { window.location = url; }, 200, linkUrl);
+        })
     }
 
 
