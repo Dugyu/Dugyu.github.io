@@ -22,7 +22,7 @@ class Brief{
         var link_a = document.createElement("a");
         link_a.innerHTML = this.data.title;
         link_a.setAttribute("class","menu_link");
-        link_a.setAttribute("href",this.dataPath);
+        link_a.setAttribute("href",this.path + this.dataPath);
         link.appendChild(link_a);
         var ulNode = document.getElementById(_ulNodeId);
         ulNode.appendChild(link);
