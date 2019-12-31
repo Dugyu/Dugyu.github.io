@@ -7,15 +7,18 @@
 class Siteframe{
 
     catalogData;
+    briefData;
     projectList = [];
+    briefList = [];
     typeClass;
     path;
 
     contentId = "content-container";
 
-    constructor(_catalogData, _typeClass, _path="")
+    constructor(_catalogData, _briefData, _typeClass, _path="")
     {
         this.catalogData = _catalogData;
+        this.briefData = _briefData;
         this.typeClass = _typeClass;
         this.path = _path;
         this.initSiteCommons();
@@ -74,9 +77,16 @@ class Siteframe{
 
 
     initMenu(){
+
+        this.briefData.forEach(e => {
+            var brief = new Brief(e, this.path, e.data_path);
+            brief.addLinkOnMenu('menu',this.catalogData.length+this.briefData.length);
+            this.briefList.push(brief);
+        })
+
         this.catalogData.forEach(e => {
             var project = new Project(e, this.path);
-            project.addLinkOnMenu('menu',this.catalogData.length);
+            project.addLinkOnMenu('menu',this.catalogData.length+this.briefData.length);
             this.projectList.push(project);
         });
 

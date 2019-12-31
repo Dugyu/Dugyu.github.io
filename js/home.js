@@ -9,11 +9,12 @@ function initCatalog(){
 
     queue()
         .defer(d3.csv, "data/catalog.csv")
+        .defer(d3.csv, "data/brief.csv" )
         .await(createProjectCatalog)
         
         
-    function createProjectCatalog(error, catalogData){
-        siteframe = new Siteframe(catalogData,"catalog");
+    function createProjectCatalog(error, catalogData, briefData){
+        siteframe = new Siteframe(catalogData,briefData,"catalog");
         siteframe.createContentOfCatalog();
     }
 
