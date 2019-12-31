@@ -46,7 +46,7 @@ class Siteframe{
         sitename_text.innerHTML = "DUGYU";
         
         sitename_div.appendChild(sitename_text);
-        sitename_container.appendChild(sitename_div);    
+        sitename_container.appendChild(sitename_div);        
     }
 
     initContentCommons(_typeClass){
@@ -77,7 +77,19 @@ class Siteframe{
 
 
     initMenu(){
+        /*         
+        <span class="top">&nbsp;</span>
+        <span class="middle">&nbsp;</span>
+        <span class="bottom">&nbsp;</span> 
+        */
 
+
+
+
+
+
+
+        
         this.briefData.forEach(e => {
             var brief = new Brief(e, this.path, e.data_path);
             brief.addLinkOnMenu('menu',this.catalogData.length+this.briefData.length);
