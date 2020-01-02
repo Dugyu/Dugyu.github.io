@@ -6,13 +6,9 @@
  */
 class Siteframe{
 
-    catalogData;
-    briefData;
+
     projectList = [];
     briefList = [];
-    typeClass;
-    path;
-
     contentId = "content-container";
 
     constructor(_catalogData, _briefData, _typeClass, _path="")
@@ -23,9 +19,13 @@ class Siteframe{
         this.path = _path;
         this.initSiteCommons();
         this.initContentCommons(_typeClass);
-        this.initMenu();
-    }
+        this.initMenuToggle();
+        this.initMenuOverlay();
+   }
 
+    get scrollY(){
+        return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    }
 
     initSiteCommons(){
         /* 
@@ -43,10 +43,26 @@ class Siteframe{
         
         var sitename_text = document.createElement('h1');
         sitename_text.setAttribute("class","display-4");
+        sitename_text.setAttribute("id","sitename-logo");
         sitename_text.innerHTML = "DUGYU";
         
         sitename_div.appendChild(sitename_text);
-        sitename_container.appendChild(sitename_div);        
+        sitename_container.appendChild(sitename_div);  
+        
+
+    $(window).scroll(function(){
+        if(this.scrollY > 0){
+            $('.sitename').attr("class","sitename onscroll");
+            $('#sitename-container').attr("class","sitename_container onscroll")
+        }else{
+            $('.sitename').attr("class","sitename"); 
+            $('#sitename-container').attr("class","sitename_container")
+
+        }
+    })
+        /* $('#sitename-logo').click(function() {
+            $('.sitename').toggleClass('onscroll');
+        });      */ 
     }
 
     initContentCommons(_typeClass){
@@ -75,21 +91,38 @@ class Siteframe{
         responsive_container.appendChild(row);
     }
 
-
-    initMenu(){
+    initMenuToggle(){
         /*         
         <span class="top">&nbsp;</span>
         <span class="middle">&nbsp;</span>
         <span class="bottom">&nbsp;</span> 
         */
 
+        var button_container = document.getElementById('menu-toggle');
+        var classname = ["top", "middle", "bottom"]
+        for (var i =0; i<3; i++){
+            var span = document.createElement('span');
+            span.setAttribute("class",classname[i]);
+            span.innerHTML = "&nbsp;";
+            button_container.appendChild(span);
+        }
+    }
 
+    initMenuOverlay(){
+        /* 
+        <nav class="overlay_nav">
+            <ul id="menu"></ul>
+        </nav> 
+        */
 
+        var overlay_container = document.getElementById('menu-overlay');
+        var nav = document.createElement("nav");
+        nav.setAttribute("class","overlay_nav");
+        var ul = document.createElement("ul");
+        ul.setAttribute("id","menu");
+        nav.appendChild(ul);
+        overlay_container.appendChild(nav);
 
-
-
-
-        
         this.briefData.forEach(e => {
             var brief = new Brief(e, this.path, e.data_path);
             brief.addLinkOnMenu('menu',this.catalogData.length+this.briefData.length);

@@ -5,9 +5,6 @@
  */
 
 class Brief{
-    data;
-    path;
-    dataPath;
 
     constructor(_data, _path="", _dataPath="")
     {

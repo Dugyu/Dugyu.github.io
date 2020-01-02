@@ -5,7 +5,7 @@
     --color-dark:black;
     --button-height:36px;
     --button-width:36px;
-    --site-gap: 25vh;
+    --site-gap: 20vh;
 }
 
 body
@@ -23,16 +23,29 @@ body
   height: var(--site-gap);
   width: 100%;
   top: 0px;
+  background-color: var(--color-light);
   position: fixed;
   z-index: 100;
-  background-color: white;
+  visibility: visible;
+  transition: visibility .01s;
+}
+
+.sitename_container.onscroll{
+  visibility: hidden;
 }
 
 .sitename{
   font-weight: 700;
   letter-spacing: 0.03em;
+  opacity: 1;
+  transition: all .3s ease; 
 }
 
+.sitename.onscroll {
+  -webkit-transform: translateY(-2vh) translateX(0) rotate(0deg);
+  transform: translateY(-2vh) translateX(0) rotate(0deg);
+  opacity: 0;
+}
 
 /* Project Catalog */
 .container{
@@ -146,9 +159,9 @@ top: 23px;
   
 
 
-/* Menu Overlay */
+/* Menu overlay_container */
 
-.overlay {
+.overlay_container {
     position: fixed;
     background: var(--color-dark);
     top: 0;
@@ -161,23 +174,23 @@ top: 23px;
     overflow: hidden;
     z-index: 200;
   }
-.overlay.open {
-    opacity: .9;
+.overlay_container.open {
+    opacity: .92;
     visibility: visible;
-    width: 90%;
+    width: 70%;
 }
-.overlay.open li {
+.overlay_container.open li {
     -webkit-animation: fadeInRight .2s ease forwards;
             animation: fadeInRight .2s ease forwards;
     -webkit-animation-delay: .3s;
             animation-delay: .3s;
 }
-.overlay.open li:nth-of-type(n+1) {
+.overlay_container.open li:nth-of-type(n+1) {
     -webkit-animation-delay: calc(.05 * n + .3)s;
             animation-delay: calc(.05 * n + .3)s;
 }
 
-.overlay nav {
+.overlay_container nav {
   position: relative;
   height: 70%;
   top: 50%;
@@ -186,7 +199,7 @@ top: 23px;
   text-align: center;
 }
 
-.overlay ul {
+.overlay_container ul {
   list-style: none;
   padding: 0;
   margin: 0 auto;
@@ -198,14 +211,14 @@ top: 23px;
   height: 100%;
 }
 
-.overlay ul li {
+.overlay_container ul li {
   display: block;
   min-height: 50px;
   position: relative;
   opacity: 0;
 }
 
-.overlay ul li a {
+.overlay_container ul li a {
   display: block;
   position: relative;
   color: var(--color-light);
@@ -213,11 +226,11 @@ top: 23px;
   overflow: hidden;
 }
 
-.overlay ul li a:hover:after, .overlay ul li a:focus:after, .overlay ul li a:active:after {
+.overlay_container ul li a:hover:after, .overlay_container ul li a:focus:after, .overlay_container ul li a:active:after {
   width: 100%;
 }
 
-.overlay ul li a:after {
+.overlay_container ul li a:after {
   content: '';
   position: absolute;
   bottom: 0;
