@@ -52,7 +52,6 @@ class Siteframe{
         sitename_img.setAttribute('class', "sitename_char");
         sitename_img.setAttribute('id', "sitename-char-logo");
 
-        sitename_img.setAttribute('style',"width:160px");
         sitename_div.appendChild(sitename_text);
         sitename_container.appendChild(sitename_div);  
         sitename_container.appendChild(sitename_img);

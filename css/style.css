@@ -54,6 +54,7 @@ body
 .sitename_char{
   opacity: 0;
   transition: all .3s ease;
+  height: 48px;
   visibility: hidden;
 }
 
