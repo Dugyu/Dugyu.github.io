@@ -5,10 +5,7 @@
  * @param _path                        -- string, the relative path to index.html, default to ""
  */
 class Siteframe{
-    projectList;
-    briefList;
     contentId = "content-container";
-
     constructor(_catalogData, _briefData, _typeClass, _path="")
     {
         this.projectList = [];
