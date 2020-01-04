@@ -5,8 +5,6 @@
  * @param _path                        -- string, the relative path to index.html, default to ""
  */
 class Siteframe{
-
-
     projectList = [];
     briefList = [];
     contentId = "content-container";
