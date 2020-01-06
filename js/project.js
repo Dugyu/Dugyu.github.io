@@ -33,7 +33,7 @@ class Project{
         img_a.appendChild(cover_img);
         
         var title = document.createElement("div");
-        title.setAttribute("class","my-5 project-title");
+        title.setAttribute("class","my-5 project-title animlink");
         var title_text = document.createElement("h5");
         var title_link = document.createElement("a");
         title_link.innerHTML = this.data.title.toUpperCase();

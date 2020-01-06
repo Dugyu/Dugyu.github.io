@@ -106,7 +106,7 @@ h5{
   word-spacing: 0.1em;
 }
 
-a {
+a{
   text-decoration: none;
   color:var( --text-color-main);
 }
@@ -121,6 +121,29 @@ a:hover{
   width: 70%;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
+}
+
+/*   Animated Link */
+.animlink a{
+  position: relative;
+}
+
+
+.animlink a:hover:after, .animlink a:focus:after, .animlink a:active:after {
+  width: 100%;
+}
+
+.animlink a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 2px;
+  background:var(--color-dark);
+  transition: .3s;
 }
 
 
