@@ -14,7 +14,11 @@ function initCatalog(){
         
         
     function createProjectCatalog(error, catalogData, briefData){
-        siteframe = new Siteframe(catalogData,briefData,"catalog");
+        var data = catalogData;
+        data.forEach(function(d){
+            d.id = +d.id;
+        })
+        siteframe = new Siteframe(data,briefData,"catalog");
         siteframe.createContentOfCatalog();
     }
 

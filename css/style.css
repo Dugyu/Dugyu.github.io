@@ -92,8 +92,14 @@ body
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 48px;
+  transition: all .3s ease;
 }
 
+.project-title{
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
 img.project-cover{
   cursor: pointer;
 }
@@ -150,8 +156,8 @@ a:hover{
 /* Menu Button */
 .button_container {
     position: fixed;
-    bottom: 5vh;
-    right: 3vw;
+    bottom: 24px;
+    right: 24px;
     height: var(--button-height);
     width: var(--button-width);
     cursor: pointer;

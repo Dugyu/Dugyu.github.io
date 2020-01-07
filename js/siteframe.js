@@ -159,8 +159,10 @@ class Siteframe{
 
 
     createContentOfCatalog(){
-        this.projectList.forEach(project => {
+       /*  this.projectList.forEach(project => {
             project.addToCatalog(this.contentId);
-        })
+        }) */
+
+        this.catalog = new Catalog(this.projectList,this.contentId, "project-wrapper");
     }
 }
