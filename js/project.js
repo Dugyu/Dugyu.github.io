@@ -51,7 +51,7 @@ class Project{
             "<div class='project-description'><p>" + this.data.abstract + "</p></div>"
         }else{
             innerHTML = 
-                "<video class='project-cover' loop preload=metadata poster='" + 
+                "<video class='project-cover' loop preload='metadata' poster='" + 
                  this.projectPath + "static/"+ this.data.cover_img + "' >" +
                 
             "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "

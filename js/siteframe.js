@@ -168,12 +168,22 @@ class Siteframe{
                 var playPromise = thisvideo.play();
                 if (playPromise !== undefined){
                     playPromise.then( _ =>{
-                         $(thisvideo).toggleClass('playing')
+                         $(thisvideo).attr("data-playing", "true")
                     })
                     .catch(error => {
                     });
                 }
             })
+            video.addEventListener("mouseout",function(){
+                var thisvideo = this;
+                if (thisvideo.getAttribute("data-playing") === 'true'){
+                    thisvideo.pause();
+                    $(thisvideo).attr("data-playing", "false")
+                }
+            })
         })
+
+
+
     }
 }
