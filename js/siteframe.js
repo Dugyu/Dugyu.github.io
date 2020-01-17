@@ -162,10 +162,18 @@ class Siteframe{
         this.catalog = new Catalog(this.projectList,this.contentId, "project-wrapper");
         var covervideos = document.querySelectorAll("video.project-cover");
         covervideos.forEach(video =>{
-            video.addEventListener("mouseover",function(){this.play();})
-            video.addEventListener("mouseout",function(){this.pause();})
-            video.addEventListener("touchstart",function(){this.play();})
-            video.addEventListener("touchend",function(){this.pause();})
+            video.addEventListener("mouseover",function(){
+                var thisvideo = this;
+                thisvideo.load();
+                var playPromise = thisvideo.play();
+                if (playPromise !== undefined){
+                    playPromise.then( _ =>{
+                         $(thisvideo).toggleClass('playing')
+                    })
+                    .catch(error => {
+                    });
+                }
+            })
         })
     }
 }
