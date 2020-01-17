@@ -52,7 +52,7 @@ class Project{
         }else{
             innerHTML = 
 /*             "<a href='" + this.projectPath + "'>" +
- */                "<video class='project-cover'>" +
+ */                "<video muted class='project-cover'>" +
                 
             "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "
                 + "type='video/mp4'>" +
