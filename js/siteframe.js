@@ -162,6 +162,7 @@ class Siteframe{
         this.catalog = new Catalog(this.projectList,this.contentId, "project-wrapper");
         var covervideos = document.querySelectorAll("video.project-cover");
         covervideos.forEach(video =>{
+            video.load();
             video.addEventListener("mouseover",function(){
                 var thisvideo = this;
                 var playPromise = thisvideo.play();
