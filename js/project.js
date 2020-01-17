@@ -19,6 +19,14 @@ class Project{
         return this.path + this.dataPath;
     }
 
+    get videoEnabled(){
+        if (this.data.cover_video == ""){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     addToCatalog(_parentEleId){
         var parentElement = document.getElementById(_parentEleId);
 
@@ -30,16 +38,34 @@ class Project{
     }
 
     calcCatalogHtml(){
-        var innerHTML = 
-       "<a href='" + this.projectPath + "'>" +
-           "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
-               + "alt='" + this.data.cover_img + "' " + "class='img-fluid project-cover'>" + 
-       "</a>" +
-       "<div class='project-title animlink'><h5><a href='" + this.projectPath + "'>" +
-        this.data.title.toUpperCase() + "</a></h5></div>" +
-       "<div class='project-description'><p>" + this.data.abstract + "</p></div>"
 
-       return innerHTML;
+        var innerHTML = ""
+        if (this.videoEnabled == false){
+            innerHTML = 
+            "<a href='" + this.projectPath + "'>" +
+                "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
+                    + "alt='" + this.data.cover_img + "' " + "class='project-cover'>" + 
+            "</a>" +
+            "<div class='project-title animlink'><h5><a href='" + this.projectPath + "'>" +
+             this.data.title.toUpperCase() + "</a></h5></div>" +
+            "<div class='project-description'><p>" + this.data.abstract + "</p></div>"
+        }else{
+            innerHTML = 
+/*             "<a href='" + this.projectPath + "'>" +
+ */                "<video class='project-cover'>" +
+                
+            "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "
+                + "type='video/mp4'>" +
+            "</video>"+
+
+               /*  "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
+                    + "alt='" + this.data.cover_img + "' " + "class='project-cover'>" +  */
+/*             "</a>" + */
+            "<div class='project-title animlink'><h5><a href='" + this.projectPath + "'>" +
+             this.data.title.toUpperCase() + "</a></h5></div>" +
+            "<div class='project-description'><p>" + this.data.abstract + "</p></div>"
+        }
+        return innerHTML;
     }
 
 

@@ -14,8 +14,11 @@ class Catalog{
         var vis = this;
         d3.select("#sitename-logo").on("click", function(d){
             vis.resortCatalog();
-        }
-        );
+        });
+        d3.select("#sitename-char-logo").on("click", function(d){
+            vis.resortCatalog2();
+        });
+        
     }
     initCatalog(){
         var vis = this;
@@ -38,6 +41,10 @@ class Catalog{
 
     resortCatalog(){
         this.displayData = this.originalData.sort((a,b)=> - a.data.id + b.data.id);
+        this.updateCatalog();
+    }
+    resortCatalog2(){
+        this.displayData = this.originalData.sort((a,b)=> a.data.id - b.data.id);
         this.updateCatalog();
     }
 

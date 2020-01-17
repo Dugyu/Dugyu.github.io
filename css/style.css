@@ -90,10 +90,9 @@ body
 .project-wrapper{
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   margin-bottom: 48px;
-  transition: all .3s ease;
+  transition: order 0.1s;
 }
 
 .project-title{
@@ -102,8 +101,13 @@ body
 }
 img.project-cover{
   cursor: pointer;
+  width: 100%;
 }
 
+video.project-cover{
+  cursor: pointer;
+  width:100%;
+}
 
 h5{
   font-family: 'Cormorant Garamond', serif;
