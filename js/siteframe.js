@@ -164,7 +164,6 @@ class Siteframe{
         covervideos.forEach(video =>{
             video.addEventListener("mouseover",function(){
                 var thisvideo = this;
-                thisvideo.load();
                 var playPromise = thisvideo.play();
                 if (playPromise !== undefined){
                     playPromise.then( _ =>{
