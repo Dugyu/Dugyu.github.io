@@ -51,15 +51,14 @@ class Project{
             "<div class='project-description'><p>" + this.data.abstract + "</p></div>"
         }else{
             innerHTML = 
+            "<a href='" + this.projectPath + "'>" +
                 "<video class='project-cover' loop preload='metadata' poster='" + 
                  this.projectPath + "static/"+ this.data.cover_img + "' >" +
                 
             "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "
                 + "type='video/mp4'>" +
             "</video>"+
-
-               /*  "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
-                    + "alt='" + this.data.cover_img + "' " + "class='project-cover'>" +  */
+            "</a>" +
             "<div class='project-title animlink'><h5><a href='" + this.projectPath + "'>" +
              this.data.title.toUpperCase() + "</a></h5></div>" +
             "<div class='project-description'><p>" + this.data.abstract + "</p></div>"
