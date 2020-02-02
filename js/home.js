@@ -22,4 +22,7 @@ function initCatalog(){
         siteframe.createContentOfCatalog();
     }
 
+    $(window).on('load',function(){
+        console.log('loaded');
+    })
 }
