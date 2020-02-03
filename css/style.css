@@ -69,11 +69,13 @@ body
 /* Project Catalog */
 .container{
   position: relative;
+  top: var(--site-gap);
 }
+
 
 .catalog{
   position: relative;
-  top: var(--site-gap);
+  top: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -81,7 +83,7 @@ body
 
 .single_project{
   position: relative;
-  top: var(--site-gap);
+  top: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -156,12 +158,47 @@ a:hover{
   transition: .3s;
 }
 
+/* Footer */
+#footer{
+  margin-top: 96px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer_links{
+  display: flex;
+  align-items: center;
+}
+
+.footer_logo img{
+  display: block;
+  width:32px;
+  height: auto;
+}
+
+.subfooter_sociallink a{
+  padding: 4px;
+  color: rgb(216, 216, 216);
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.subfooter_sociallink a:hover{
+  text-decoration: none;
+  color:var(--text-color-accent);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+
 
 /* Menu Button */
 .button_container {
     position: fixed;
     bottom: 24px;
-    right: 24px;
+    right: 16px;
     height: var(--button-height);
     width: var(--button-width);
     cursor: pointer;

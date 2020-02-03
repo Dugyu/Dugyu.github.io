@@ -16,6 +16,7 @@ class Siteframe{
         this.path = _path;
         this.initSiteCommons();
         this.initContentCommons(_typeClass);
+        this.initFooter();
         this.initMenuToggle();
         this.initMenuOverlay();
    }
@@ -23,6 +24,31 @@ class Siteframe{
     get scrollY(){
         return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     }
+
+    initFooter(){
+        var footer = document.getElementById('footer');
+
+        var footer_content = 
+        "<div class='footer_logo'> "+
+            "<img class=''src='" + this.path + "static/favico.png" + "'>"+
+        "</div>"+
+        "<div class='footer_links'>" + 
+            "<div class='subfooter_sociallink'>"+
+                "<a href='https://www.linkedin.com/in/guangyudu/'>" +
+                    'Linkedin' + "</a>" + 
+            "</div>" +
+            "<div class='subfooter_sociallink'>"+
+                "<a href='https://github.com/Dugyu'>" +
+                    'Github' + "</a>" + 
+            "</div>" + 
+            "<div class='subfooter_sociallink'>"+
+                "<a href='mailto:guangyudu@gsd.harvard.edu'>" +
+                'Email' + "</a>" + 
+            "</div>" +
+        "</div>"
+        footer.innerHTML = footer_content;
+    }
+
 
     initSiteCommons(){
         /* 
@@ -95,6 +121,18 @@ class Siteframe{
         col.appendChild(content_container);
         row.appendChild(col);
         responsive_container.appendChild(row);
+
+        var footer_row = document.createElement('div');
+        footer_row.setAttribute('class', "row");
+        var footer_col = document.createElement('div');
+        footer_col.setAttribute("class","col-md-10 offset-md-1");
+
+        var footer = document.createElement('footer');
+        footer.setAttribute("id","footer");
+
+        footer_col.appendChild(footer);
+        footer_row.appendChild(footer_col);
+        responsive_container.appendChild(footer_row);
     }
 
     initMenuToggle(){
@@ -182,8 +220,5 @@ class Siteframe{
                 }
             })
         })
-
-
-
     }
 }
