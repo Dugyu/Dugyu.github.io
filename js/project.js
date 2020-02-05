@@ -65,8 +65,11 @@ class Project{
         return innerHTML;
     }
 
-
-
+    calcTitleBlockHtml(){
+        var innerHTML = 
+        "<h1>" + this.data.title.toUpperCase() + "</h1>"
+        return innerHTML;
+    }
 
     calcCatalogHtml(){
         var innerHTML = ""

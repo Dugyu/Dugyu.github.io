@@ -16,16 +16,26 @@ class SingleProject{
     createProjectSlides(_wrapperClass, _wrapperId){
         var vis = this;
         vis.container = document.getElementById(vis.containerId);
+        /*title*/
+        var titleblock = document.createElement('div');
+        titleblock.setAttribute('class','project-titleblock')
+        titleblock.innerHTML = "";
+        this.contentData.forEach(project => {
+            titleblock.innerHTML += project.calcTitleBlockHtml()
+        });
+        vis.container.appendChild(titleblock);
+        /*slideshow*/
         var slides = document.createElement('div');
         slides.setAttribute("class", _wrapperClass + "s");
         slides.setAttribute("id", _wrapperId);
-
         slides.innerHTML = "";
-
         this.contentData.forEach(project => {
             slides.innerHTML += project.calcSlideShowHtml(_wrapperClass)
         });
         vis.container.appendChild(slides);
+
+
+
         this.addSlidesTransition(_wrapperClass, _wrapperId);
     }
 
