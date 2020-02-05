@@ -1,5 +1,13 @@
+/*
+ * Catalog - The wrapper class for catalog on home page
+ * @param _wrapperList          -- an array that contains the wrappers(project\brief) to display
+ * @param _containerId      -- the id of parent responsive container
+ * @param _wrapperClass     -- a string indicates which type of content the catalog contains
+ */
+
+
 class Catalog{
-    constructor(_wrapperList, _containerId, _wrapperClass="proeject-wrapper")
+    constructor(_wrapperList, _containerId, _wrapperClass="project-wrapper")
     {
         this.originalData = _wrapperList;
         this.displayData = _wrapperList.slice();

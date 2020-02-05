@@ -13,6 +13,7 @@ class Project{
         this.data = _data;
         this.path = _path;
         this.dataPath = "projects/" + this.data.title.toLowerCase() + "/";
+        this.parseSlideShowData();
     }
 
     get projectPath(){
@@ -21,6 +22,14 @@ class Project{
 
     get videoEnabled(){
         if (this.data.cover_video == ""){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    get slidesEnabled(){
+        if (this.data.content_slides == ""){
             return false;
         }else{
             return true;
@@ -37,15 +46,34 @@ class Project{
         parentElement.appendChild(project_wrapper);
     }
 
-    calcCatalogHtml(){
+    
+    
+    parseSlideShowData(){
+        this.slidesData = this.data.content_slides.split(',');
+    }
 
+    calcSlideShowHtml(_slidetype){
+        var innerHTML = 
+        "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
+            + "alt='" + this.data.cover_img + "' " + "class='" + _slidetype + " showing'>"; 
+        if (this.slidesEnabled == true){
+            this.slidesData.forEach(imgname => {
+                    innerHTML = innerHTML + "<img class='"+  _slidetype +  "' src='" + this.projectPath + "static/"
+                    + imgname + "'" + "alt='" + imgname + "'>"
+            });
+        }
+        return innerHTML;
+    }
+
+
+
+
+    calcCatalogHtml(){
         var innerHTML = ""
         if (this.videoEnabled == false){
             innerHTML = 
-            "<a href='" + this.projectPath + "'>" +
                 "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
                     + "alt='" + this.data.cover_img + "' " + "class='project-cover'>" + 
-            "</a>" +
             "<div class='project-title animlink'><h5><a href='" + this.projectPath + "'>" +
              this.data.title.toUpperCase() + "</a></h5></div>" +
             "<div class='project-description'><p>" + this.data.abstract + "</p></div>"
@@ -63,8 +91,6 @@ class Project{
         }
         return innerHTML;
     }
-
-
 
     addLinkOnMenu(_ulNodeId, _totalNum){
         var link = document.createElement("li");

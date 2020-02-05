@@ -66,12 +66,11 @@ body
 
 }
 
-/* Project Catalog */
+/* Siteframe */
 .container{
   position: relative;
   top: var(--site-gap);
 }
-
 
 .catalog{
   position: relative;
@@ -89,12 +88,45 @@ body
   flex-direction: column;
 }
 
+
+/*Single Project Slides*/
+.singleproject-slides{
+  width: 100%;
+  position: relative;
+	padding: 0px;
+	margin: 0px;
+}
+
+.singleproject-slide{
+  position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: auto;
+	opacity: 0;
+	z-index: 1;
+
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	transition: opacity 1s;
+}
+
+.showing{
+  position: relative;
+  left: 0px;
+	top: 0px;
+	opacity: 1;
+	z-index: 2;
+}
+
+/* Project Catalog */
 .project-wrapper{
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-bottom: 72px;
-  transition: order 0.1s;
+  transition: order 0.8s;
 }
 
 .project-title{

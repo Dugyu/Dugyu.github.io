@@ -20,7 +20,7 @@ function initProject(){
         })
         siteframe = new Siteframe(data,briefData,"single_project","../../");
         //siteframe.createContentOfCatalog();
-        siteframe.createContentOfSingleProject("Xenolith");
+        siteframe.createContentOfSingleProject("Engram");
 
     }
 

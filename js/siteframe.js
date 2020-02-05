@@ -1,6 +1,7 @@
 /*
  * Siteframe - The wrapper class for site commons
  * @param _catalogData						-- the object that contains all project data
+ * @param _briefData                    -- the object that contains all brief data
  * @param _typeClass					-- string, page type: "catalog", "single_project"
  * @param _path                        -- string, the relative path to index.html, default to ""
  */
@@ -195,6 +196,12 @@ class Siteframe{
         })
     }
 
+    createContentOfSingleProject(_projectTitle){
+        this.singleProjectData = this.projectList.filter(project => project.data.title == _projectTitle);
+        var singleProject = new SingleProject(this.singleProjectData, this.contentId);
+        singleProject.createProjectSlides("singleproject-slide");
+    }
+
 
     createContentOfCatalog(){
         this.catalog = new Catalog(this.projectList,this.contentId, "project-wrapper");
@@ -221,4 +228,5 @@ class Siteframe{
             })
         })
     }
+
 }
