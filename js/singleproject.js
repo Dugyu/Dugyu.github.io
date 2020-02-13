@@ -33,9 +33,7 @@ class SingleProject{
             slides.innerHTML += project.calcSlideShowHtml(_wrapperClass)
         });
         vis.container.appendChild(slides);
-
-
-
+        
         this.addSlidesTransition(_wrapperClass, _wrapperId);
     }
 
