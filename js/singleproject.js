@@ -13,10 +13,12 @@ class SingleProject{
         this.currentSlide = {};
         this.setInterval = {};
     }
-    createProjectSlides(_wrapperClass, _wrapperId){
+
+    createTitleBlock(){
+        /*title*/
+
         var vis = this;
         vis.container = document.getElementById(vis.containerId);
-        /*title*/
         var titleblock = document.createElement('div');
         titleblock.setAttribute('class','project-titleblock')
         titleblock.innerHTML = "";
@@ -24,6 +26,10 @@ class SingleProject{
             titleblock.innerHTML += project.calcTitleBlockHtml()
         });
         vis.container.appendChild(titleblock);
+    }
+    createProjectSlides(_wrapperClass, _wrapperId){
+        var vis = this;
+        vis.container = document.getElementById(vis.containerId);
         /*slideshow*/
         var slides = document.createElement('div');
         slides.setAttribute("class", _wrapperClass + "s");

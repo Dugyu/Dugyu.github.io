@@ -31,7 +31,9 @@ class Siteframe{
 
         var footer_content = 
         "<div class='footer_logo'> "+
+            "<a href='" + this.path +"'>" +
             "<img class=''src='" + this.path + "static/favico.png" + "'>"+
+            "</a>" +
         "</div>"+
         "<div class='footer_links'>" + 
             "<div class='subfooter_sociallink'>"+
@@ -199,6 +201,7 @@ class Siteframe{
     createContentOfSingleProject(_projectTitle){
         this.singleProjectData = this.projectList.filter(project => project.data.title == _projectTitle);
         var singleProject = new SingleProject(this.singleProjectData, this.contentId);
+        singleProject.createTitleBlock();
         singleProject.createProjectSlides("singleproject-slide", "project-primary-slide");
     }
 
