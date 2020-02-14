@@ -40,6 +40,7 @@ class Catalog{
         vis.wrapperBind.exit().remove();
         vis.wrapperBind.enter().append('div')
                         .attr('class', vis.wrapperClass)
+                        .attr('data-aos','fade-in')
                         .merge(vis.wrapperBind)
                         .style('order',function(d,i){return i})
                         .html(function(d){

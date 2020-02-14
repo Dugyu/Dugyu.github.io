@@ -109,18 +109,38 @@ body
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 60px;
-  margin-bottom: 120px;
+  margin-top: 64px;
+  margin-bottom: 128px;
+}
+.project-abstractblock{
+  width: 40%;
+  position: relative;
+  left:30%;
+  font-family: 'Lato';
+  font-weight: 300;
+  font-size: medium;
+  margin-bottom: 128px;
+}
+.project-detailblock{
+  width: 70%;
+  position: relative;
+  left:15%;
+  font-family: 'Lato';
+  font-weight: 300;
+  font-size: medium;
+  margin-bottom: 128px;
 }
 
-
+.project-detailblock p{
+  margin-bottom: 64px;
+}
 
 /*Single Project Slides*/
 .singleproject-slides{
   width: 100%;
   position: relative;
 	padding: 0px;
-	margin: 0px;
+	margin-bottom: 128px;
 }
 
 .singleproject-slide{
@@ -152,7 +172,7 @@ body
   align-items: center;
   flex-direction: column;
   margin-top: 48px;
-  margin-bottom: 240px;
+  margin-bottom: 128px;
   transition: order 0.8s;
 }
 

@@ -15,7 +15,7 @@ class SingleProject{
     }
 
     createTitleBlock(){
-        /*title*/
+        /* Title */
 
         var vis = this;
         vis.container = document.getElementById(vis.containerId);
@@ -27,6 +27,32 @@ class SingleProject{
         });
         vis.container.appendChild(titleblock);
     }
+    createAbstractBlock(){
+        /* Abstract */
+        var vis = this;
+        vis.container = document.getElementById(vis.containerId);
+        var abstractblock = document.createElement('div');
+        abstractblock.setAttribute('class','project-abstractblock')
+        abstractblock.innerHTML = "";
+        this.contentData.forEach(project => {
+            abstractblock.innerHTML += project.calcAbstractBlockHtml()
+        });
+        vis.container.appendChild(abstractblock);
+    }
+
+    createDetailsBlock(){
+        /* Abstract */
+        var vis = this;
+        vis.container = document.getElementById(vis.containerId);
+        var detailblock = document.createElement('div');
+        detailblock.setAttribute('class','project-detailblock')
+        detailblock.innerHTML = "";
+        this.contentData.forEach(project => {
+            detailblock.innerHTML += project.calcDetailsBlockHtml()
+        });
+        vis.container.appendChild(detailblock);
+    }
+
     createProjectSlides(_wrapperClass, _wrapperId){
         var vis = this;
         vis.container = document.getElementById(vis.containerId);

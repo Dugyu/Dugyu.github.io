@@ -202,7 +202,9 @@ class Siteframe{
         this.singleProjectData = this.projectList.filter(project => project.data.title == _projectTitle);
         var singleProject = new SingleProject(this.singleProjectData, this.contentId);
         singleProject.createTitleBlock();
+        singleProject.createAbstractBlock();
         singleProject.createProjectSlides("singleproject-slide", "project-primary-slide");
+        singleProject.createDetailsBlock();
     }
 
 

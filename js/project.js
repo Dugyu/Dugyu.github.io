@@ -37,11 +37,11 @@ class Project{
     }
 
     addToCatalog(_parentEleId){
+        // not used 
         var parentElement = document.getElementById(_parentEleId);
-
         var project_wrapper = document.createElement("div");
         project_wrapper.setAttribute("class","project-wrapper");
-        project_wrapper.setAttribute("data-aos", "fade-in");
+        project_wrapper.setAttribute("data-aos", "fade-in");  
         project_wrapper.innerHTML = this.calcCatalogHtml();
         parentElement.appendChild(project_wrapper);
     }
@@ -73,7 +73,18 @@ class Project{
     }
 
     calcAbstractBlockHtml(){
-        
+        var innerHTML = 
+        "<p>" + this.data.abstract + "</p>";
+        return innerHTML;
+    }
+
+    calcDetailsBlockHtml(){
+        var paragrahs = this.data.content_details.split("<br>");
+        var innerHTML = "";
+        paragrahs.forEach(p =>{
+            innerHTML += "<p>" + p + "</p>";
+        })
+        return innerHTML;
     }
 
     calcCatalogHtml(){
