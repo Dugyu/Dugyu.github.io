@@ -8,6 +8,7 @@
     --button-width:36px;
     --site-gap: 20vh;
     --site-gap-scroll: 15vh;
+    --site-banner-height: 5vh;
 }
 
 body
@@ -19,7 +20,6 @@ body
 .sitename_container{
   display: flex;
   flex-direction: column;
-  space-between: 24px;
   align-items: center;
   justify-content: center;
   height: var(--site-gap);
@@ -40,6 +40,7 @@ body
   -webkit-transform: translateY(4vh) translateX(0) rotate(0deg);
   transform: translateY(4vh) translateX(0) rotate(0deg);
   font-weight: 700;
+  height:5vh;
   letter-spacing: 0.03em;
   opacity: 1;
   transition: all .3s ease; 
@@ -56,7 +57,7 @@ body
 .sitename_char{
   opacity: 0;
   transition: all .3s ease;
-  height: 48px;
+  height: var(--site-banner-height);
   visibility: hidden;
 }
 
