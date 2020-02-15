@@ -28,14 +28,6 @@ class Project{
         }
     }
 
-    get longVideoEnabled(){
-        if (this.data.content_video == ""){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
     get slidesEnabled(){
         if (this.data.content_slides == ""){
             return false;
@@ -97,17 +89,30 @@ class Project{
 
     calcVideoBlockHtml(){
         var innerHTML = "";
-        if (this.longVideoEnabled == true){
-        innerHTML = 
-        "<iframe src='https://player.vimeo.com/video/" + this.data.content_video + "?loop=1&title=0&byline=0&portrait=0'" +
-        "width='960' height='540' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>";
-        }else if(this.videoEnabled == true){
-        innerHTML = 
-            "<video class='project-contentvideo' controls loop preload='metadata' poster='" + 
-            this.projectPath + "static/"+ this.data.cover_img + "' >" +
-            "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "
-            + "type='video/mp4'>" +
-            "</video>";
+        switch (this.data.content_videoprovider){
+            case "Vimeo":
+                innerHTML = 
+                "<div class='iframe-container'>" +   
+                    "<iframe src='https://player.vimeo.com/video/" + this.data.content_video + "?loop=1&title=0&byline=0&portrait=0'" +
+                    "width='960' height='540' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>"
+                + "</div>";
+                break;
+            case "Youtube":   
+                innerHTML=    
+                "<div class='iframe-container'>" +            
+                    "<iframe width='' height='' src='https://www.youtube.com/embed/" + this.data.content_video + "' " 
+                    +"frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope' allowfullscreen></iframe>"
+                + "</div>";
+                break;
+            default:
+                if (this.data.videoEnabled == true){
+                    innerHTML = 
+                    "<video class='project-contentvideo' controls loop preload='metadata' poster='" + 
+                    this.projectPath + "static/"+ this.data.cover_img + "' >" +
+                    "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "
+                    + "type='video/mp4'>" +
+                    "</video>";
+                }
         }
         return innerHTML;
     }

@@ -53,12 +53,12 @@ class SingleProject{
         vis.container.appendChild(detailblock);
     }
 
-    createVideoBlock(){
+    createVideoBlock(_wrapperClass){
         var vis=this;
         vis.container = document.getElementById(vis.containerId);
         var videoblock = document.createElement('div');
         videoblock.innerHTML = "";
-        videoblock.setAttribute('class','project-videoblock')
+        videoblock.setAttribute('class', _wrapperClass)
         this.contentData.forEach(project => {
             videoblock.innerHTML += project.calcVideoBlockHtml();
         });
