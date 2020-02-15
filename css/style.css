@@ -136,6 +136,16 @@ body
   margin-bottom: 64px;
 }
 
+.project-videoblock{
+  position: relative;
+  width: 100%;
+}
+
+video.project-contentvideo{
+  position: relative;
+  width: 100%;
+}
+
 /*Single Project Slides*/
 .singleproject-slides{
   width: 100%;

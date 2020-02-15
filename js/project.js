@@ -28,6 +28,14 @@ class Project{
         }
     }
 
+    get longVideoEnabled(){
+        if (this.data.content_video == ""){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     get slidesEnabled(){
         if (this.data.content_slides == ""){
             return false;
@@ -84,6 +92,26 @@ class Project{
         paragrahs.forEach(p =>{
             innerHTML += "<p>" + p + "</p>";
         })
+        return innerHTML;
+    }
+
+    calcVideoBlockHtml(){
+        var innerHTML = "";
+        if (this.longVideoEnabled == true){
+        innerHTML = 
+             "<video class='project-contentvideo' controls loop crossorigin=anonymous preload='metadata' poster='" + 
+            this.projectPath + "static/"+ this.data.cover_img + "' >" +
+            "<source src='https://adobe.ly/372DT2t" + "" + "' "
+            + "type='video/mp4'>" +
+            "</video>"; 
+        }else if(this.videoEnabled == true){
+        innerHTML = 
+            "<video class='project-contentvideo' controls loop preload='metadata' poster='" + 
+            this.projectPath + "static/"+ this.data.cover_img + "' >" +
+            "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "
+            + "type='video/mp4'>" +
+            "</video>";
+        }
         return innerHTML;
     }
 

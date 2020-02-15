@@ -48,9 +48,21 @@ class SingleProject{
         detailblock.setAttribute('class','project-detailblock')
         detailblock.innerHTML = "";
         this.contentData.forEach(project => {
-            detailblock.innerHTML += project.calcDetailsBlockHtml()
+            detailblock.innerHTML += project.calcDetailsBlockHtml();
         });
         vis.container.appendChild(detailblock);
+    }
+
+    createVideoBlock(){
+        var vis=this;
+        vis.container = document.getElementById(vis.containerId);
+        var videoblock = document.createElement('div');
+        videoblock.innerHTML = "";
+        videoblock.setAttribute('class','project-videoblock')
+        this.contentData.forEach(project => {
+            videoblock.innerHTML += project.calcVideoBlockHtml();
+        });
+        vis.container.appendChild(videoblock);
     }
 
     createProjectSlides(_wrapperClass, _wrapperId){
