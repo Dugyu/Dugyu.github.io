@@ -138,11 +138,15 @@ body
 
 .project-videoblock{
   position: relative;
+  top:0;
+  left: 0;
   width: 100%;
 }
 
-video.project-contentvideo{
+.project-videoblock iframe{
   position: relative;
+  top:0;
+  left: 0;
   width: 100%;
 }
 

@@ -99,11 +99,8 @@ class Project{
         var innerHTML = "";
         if (this.longVideoEnabled == true){
         innerHTML = 
-             "<video class='project-contentvideo' controls loop crossorigin=anonymous preload='metadata' poster='" + 
-            this.projectPath + "static/"+ this.data.cover_img + "' >" +
-            "<source src='https://adobe.ly/372DT2t" + "" + "' "
-            + "type='video/mp4'>" +
-            "</video>"; 
+        "<iframe src='https://player.vimeo.com/video/" + this.data.content_video + "?loop=1&title=0&byline=0&portrait=0'" +
+        "width='960' height='540' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>";
         }else if(this.videoEnabled == true){
         innerHTML = 
             "<video class='project-contentvideo' controls loop preload='metadata' poster='" + 
