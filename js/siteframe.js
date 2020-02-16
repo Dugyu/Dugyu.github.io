@@ -208,6 +208,15 @@ class Siteframe{
         singleProject.createVideoBlock("project-videoblock");
     }
 
+    createContentOfSingleBrief(_briefTitle){
+        this.singleBriefData = this.briefList.filter(brief => brief.data.title == _briefTitle);
+        var singleProject = new SingleProject(this.singleBriefData, this.contentId);
+        singleProject.createTitleBlock();
+        singleProject.createAbstractBlock();
+        singleProject.createImageBlock("project-imageblock");
+        singleProject.createDetailsBlock();
+
+    }
 
     createContentOfCatalog(){
         this.catalog = new Catalog(this.projectList,this.contentId, "project-wrapper");

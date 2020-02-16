@@ -65,6 +65,19 @@ class SingleProject{
         vis.container.appendChild(videoblock);
     }
 
+    createImageBlock(_wrapperClass){
+        var vis = this;
+        vis.container = document.getElementById(vis.containerId);
+        /*image*/
+        var image = document.createElement('div');
+        image.setAttribute("class", _wrapperClass);
+        image.innerHTML = "";
+        this.contentData.forEach(project => {
+            image.innerHTML += project.calcImageBlockHtml();
+        });
+        vis.container.appendChild(image);
+    }
+
     createProjectSlides(_wrapperClass, _wrapperId){
         var vis = this;
         vis.container = document.getElementById(vis.containerId);

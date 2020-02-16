@@ -1,0 +1,5 @@
+/*
+ * project list page  
+ */
+
+initCatalog("../");
