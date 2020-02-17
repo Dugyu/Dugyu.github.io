@@ -10,6 +10,7 @@
     --site-gap-scroll: 15vh;
     --site-banner-height: 5vh;
     --margin-large: 128px;
+    --margin-medium: 64px;
 }
 
 body
@@ -111,8 +112,8 @@ body
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 64px;
-  margin-bottom: 128px;
+  margin-top:  var(--margin-medium);
+  margin-bottom: var(--margin-medium);
 }
 
 /*Single Project Abstract Block*/
@@ -123,7 +124,8 @@ body
   font-family: 'Lato';
   font-weight: 300;
   font-size: medium;
-  margin-bottom: 128px;
+  margin-top: var(--margin-medium);
+  margin-bottom: var(--margin-medium);
 }
 
 .project-abstractblock p{
@@ -184,14 +186,20 @@ img.brief-cover{
 .singleproject-slides{
   width: 100%;
   position: relative;
-	padding: 0px;
-	margin-bottom: var(--margin-large);
+	padding-top: 75%;
+	margin-bottom: var(--margin-medium);
 }
 
 .singleproject-slide{
   position: absolute;
-	left: 0px;
-	top: 0px;
+	left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 	width: 100%;
 	height: auto;
 	opacity: 0;
@@ -204,9 +212,6 @@ img.brief-cover{
 }
 
 .showing{
-  position: relative;
-  left: 0px;
-	top: 0px;
 	opacity: 1;
 	z-index: 2;
 }

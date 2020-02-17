@@ -198,8 +198,8 @@ class Siteframe{
         })
     }
 
-    createContentOfSingleProject(_projectTitle){
-        this.singleProjectData = this.projectList.filter(project => project.data.title == _projectTitle);
+    createContentOfSingleProject(_projectKey){
+        this.singleProjectData = this.projectList.filter(project => project.data.key == _projectKey);
         var singleProject = new SingleProject(this.singleProjectData, this.contentId);
         singleProject.createTitleBlock();
         singleProject.createAbstractBlock();
@@ -208,8 +208,8 @@ class Siteframe{
         singleProject.createVideoBlock("project-videoblock");
     }
 
-    createContentOfSingleBrief(_briefTitle){
-        this.singleBriefData = this.briefList.filter(brief => brief.data.title == _briefTitle);
+    createContentOfSingleBrief(_briefKey){
+        this.singleBriefData = this.briefList.filter(brief => brief.data.key == _briefKey);
         var singleProject = new SingleProject(this.singleBriefData, this.contentId);
         singleProject.createTitleBlock();
         singleProject.createAbstractBlock();

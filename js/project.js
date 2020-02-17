@@ -12,7 +12,7 @@ class Project{
     {
         this.data = _data;
         this.path = _path;
-        this.dataPath = "projects/" + this.data.title.toLowerCase() + "/";
+        this.dataPath = "projects/" + this.data.key.toLowerCase() + "/";
         this.parseSlideShowData();
     }
 
@@ -53,14 +53,20 @@ class Project{
     }
 
     calcSlideShowHtml(_slidetype){
-        var innerHTML = 
-        "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
-            + "alt='" + this.data.cover_img + "' " + "class='" + _slidetype + " showing'>"; 
+        var innerHTML = "";
         if (this.slidesEnabled == true){
-            this.slidesData.forEach(imgname => {
-                    innerHTML = innerHTML + "<img class='"+  _slidetype +  "' src='" + this.projectPath + "static/"
+            this.slidesData.forEach((imgname,i) => {
+                if (i==0){
+                    innerHTML += "<img class='"+  _slidetype +  " showing' src='" + this.projectPath + "static/"
                     + imgname + "'" + "alt='" + imgname + "'>"
+                }else{
+                    innerHTML +=  "<img class='"+  _slidetype +  "' src='" + this.projectPath + "static/"
+                    + imgname + "'" + "alt='" + imgname + "'>"
+                }   
             });
+        }else{
+            innerHTML = "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
+            + "alt='" + this.data.cover_img + "' " + "class='" + _slidetype + " showing'>"; 
         }
         return innerHTML;
     }
