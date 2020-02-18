@@ -171,15 +171,20 @@ class Siteframe{
         overlay_container.appendChild(nav);
 
         this.briefData.forEach(e => {
-            var brief = new Brief(e, this.path, e.data_path);
-            brief.addLinkOnMenu('menu',this.catalogData.length+this.briefData.length);
-            this.briefList.push(brief);
+            if (e.key != ""){
+                var brief = new Brief(e, this.path, e.data_path);
+                brief.addLinkOnMenu('menu',this.catalogData.length+this.briefData.length);
+                this.briefList.push(brief);
+            }
+
         })
 
         this.catalogData.forEach(e => {
+            if (e.key != ""){
             var project = new Project(e, this.path);
             project.addLinkOnMenu('menu',this.catalogData.length+this.briefData.length);
             this.projectList.push(project);
+            }
         });
 
         $('#menu-toggle').click(function() {
