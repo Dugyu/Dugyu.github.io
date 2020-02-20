@@ -110,15 +110,15 @@ class Project{
                     +"frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope' allowfullscreen></iframe>"
                 + "</div>";
                 break;
+            case "NA":
+                innerHTML="<video class='project-contentvideo' controls loop preload='metadata' poster='" + 
+                this.projectPath + "static/"+ this.data.cover_img + "' >" +
+                "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "
+                + "type='video/mp4'>" +
+                "</video>";
+                break;
             default:
-                if (this.data.videoEnabled == true){
-                    innerHTML = 
-                    "<video class='project-contentvideo' controls loop preload='metadata' poster='" + 
-                    this.projectPath + "static/"+ this.data.cover_img + "' >" +
-                    "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "
-                    + "type='video/mp4'>" +
-                    "</video>";
-                }
+                innerHTML = "";
         }
         return innerHTML;
     }
