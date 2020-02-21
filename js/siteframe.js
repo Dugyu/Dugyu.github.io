@@ -18,7 +18,9 @@ class Siteframe{
         this.initSiteCommons();
         this.initContentCommons(_typeClass);
         this.initFooter();
+        this.initButtonContainers();
         this.initMenuToggle();
+        this.initMuteToggle();
         this.initMenuOverlay();
    }
 
@@ -138,6 +140,18 @@ class Siteframe{
         responsive_container.appendChild(footer_row);
     }
 
+    initButtonContainers(){
+        /*         
+        <div class="menu_button_container" id="menu-toggle"></div> 
+        <div class="mute_button_container" id="mute-toggle"></div>
+        */
+        var button_container = document.getElementById('button-container');
+        button_container.innerHTML = 
+        "<div class='menu_button' id='menu-toggle'></div>" + 
+        "<div class='mute_button' id='mute-toggle'></div>";
+        
+    }
+
     initMenuToggle(){
         /*         
         <span class="top">&nbsp;</span>
@@ -145,14 +159,29 @@ class Siteframe{
         <span class="bottom">&nbsp;</span> 
         */
 
-        var button_container = document.getElementById('menu-toggle');
+        var menu_button = document.getElementById('menu-toggle');
         var classname = ["top", "middle", "bottom"]
         for (var i =0; i<3; i++){
             var span = document.createElement('span');
             span.setAttribute("class",classname[i]);
             span.innerHTML = "&nbsp;";
-            button_container.appendChild(span);
+            menu_button.appendChild(span);
         }
+    }
+
+    initMuteToggle(){
+        var mute_button = document.getElementById('mute-toggle');
+            var span = document.createElement('span');
+            mute_button.appendChild(span);
+        $('.mute_button').toggleClass('mute');
+        $('.mute_button').click(function(e) {
+            e.preventDefault();
+            var elems = document.querySelectorAll("video, audio");
+            elems.forEach(elem => {
+                elem.muted = !elem.muted;
+            });
+            $(this).toggleClass("mute")
+        })
     }
 
     initMenuOverlay(){
