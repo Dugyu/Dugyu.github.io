@@ -85,7 +85,7 @@ class Project{
     }
 
     calcDetailsBlockHtml(){
-        var paragrahs = this.data.content_details.split("<br>");
+        var paragrahs = this.data.content_details.split("</n>");
         var innerHTML = "";
         paragrahs.forEach(p =>{
             innerHTML += "<p>" + p + "</p>";

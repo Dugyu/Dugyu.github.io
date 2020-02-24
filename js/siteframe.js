@@ -170,9 +170,10 @@ class Siteframe{
     }
 
     initMuteToggle(){
+        if(this.typeClass == "catalog"){
         var mute_button = document.getElementById('mute-toggle');
-            var span = document.createElement('span');
-            mute_button.appendChild(span);
+        var span = document.createElement('span');
+        mute_button.appendChild(span);
         $('.mute_button').toggleClass('mute');
         $('.mute_button').click(function(e) {
             e.preventDefault();
@@ -182,6 +183,8 @@ class Siteframe{
             });
             $(this).toggleClass("mute")
         })
+        }
+        
     }
 
     initMenuOverlay(){
