@@ -466,7 +466,7 @@ top: 23px;
 
 .overlay_container nav {
   position: relative;
-  height: 70%;
+  height: 60%;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -487,9 +487,9 @@ top: 23px;
 
 .overlay_container ul li {
   display: block;
-  min-height: 50px;
   position: relative;
   opacity: 0;
+  font-size: smaller;
 }
 
 .overlay_container ul li a {
