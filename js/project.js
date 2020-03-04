@@ -28,6 +28,14 @@ class Project{
         }
     }
 
+    get longVideoEnabled(){
+       if (this.data.content_videoprovider == "NA"){
+           return false;
+       }else{
+           return true;
+       }
+    }
+
     get slidesEnabled(){
         if (this.data.content_slides == ""){
             return false;
@@ -93,9 +101,13 @@ class Project{
         return innerHTML;
     }
 
-    calcVideoBlockHtml(){
+    calcVideoBlockHtml(_useCover){
         var innerHTML = "";
-        switch (this.data.content_videoprovider){
+        var type = "NA";
+        if (_useCover != true){
+            type = this.data.content_videoprovider;
+        }
+        switch (type){
             case "Vimeo":
                 innerHTML = 
                 "<div class='iframe-container'>" +   

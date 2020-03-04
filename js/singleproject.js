@@ -1,5 +1,5 @@
 /*
- * SingleProject - The wrapper class for catalog on home page
+ * SingleProject - The wrapper class for the content in a project page
  * @param _contentData          -- an array that contains the data to display (one, coule be project or brief)
  * @param _containerId      -- the id of parent responsive container
  */
@@ -60,10 +60,52 @@ class SingleProject{
         videoblock.innerHTML = "";
         videoblock.setAttribute('class', _wrapperClass)
         this.contentData.forEach(project => {
-            videoblock.innerHTML += project.calcVideoBlockHtml();
-        });
+            videoblock.innerHTML += project.calcVideoBlockHtml(true);
+        if (project.longVideoEnabled){
+            vis.container.appendChild(vis.createVideoSwitchButton()); // add video switch button
+            $('input[name=videotype]').change(function(){
+                var value = $( 'input[name=videotype]:checked' ).val();
+                if(value == "long"){
+                    vis.updateVideoBlock(_wrapperClass,false);
+                }else{
+                    vis.updateVideoBlock(_wrapperClass,true);
+                }
+            });
+        }
         vis.container.appendChild(videoblock);
+    });
+
+
     }
+    updateVideoBlock(_wrapperClass,_useCover){
+        var vis=this;
+        var videoblocks = document.getElementsByClassName(_wrapperClass);
+        vis.contentData.forEach(project => {
+            for(var i = 0; i < videoblocks.length; i++) {
+                videoblocks[i].innerHTML = project.calcVideoBlockHtml(_useCover);
+
+            }
+        });
+    }
+
+    createVideoSwitchButton(){
+        var switchbutton = document.createElement('div');
+        switchbutton.setAttribute('class', 'videoswitch-container');
+
+        switchbutton.innerHTML = 
+        "<input type='radio' name='videotype' value='short' id='videoswitch-shortvideo' checked hidden/>"
+        +
+        "<label for='videoswitch-shortvideo'>Short</label>"
+        +
+        "<input type='radio' name='videotype' value='long' id='videoswitch-longvideo' hidden/>"
+        +
+        "<label for='videoswitch-longvideo'>Long</label>"
+        return switchbutton;
+    }
+    switchCurrentVideo(){
+        // change usecover
+    }
+
 
     createImageBlock(_wrapperClass){
         var vis = this;
