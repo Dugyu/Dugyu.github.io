@@ -13,7 +13,7 @@ class Project{
         this.data = _data;
         this.path = _path;
         this.dataPath = "projects/" + this.data.key.toLowerCase() + "/";
-        this.parseSlideShowData();
+
     }
 
     get projectPath(){
@@ -53,14 +53,24 @@ class Project{
         project_wrapper.innerHTML = this.calcCatalogHtml();
         parentElement.appendChild(project_wrapper);
     }
-
-    
     
     parseSlideShowData(){
         this.slidesData = this.data.content_slides.split(',');
     }
 
+    parseLinksData(){
+        var linkdata = this.data.otherlinks.split('</n>');
+        this.links = [];
+        linkdata.forEach(d => {
+           var titlelink = d.split(',');
+           var link = [titlelink[0],titlelink[1]];
+           this.links.push(link);
+        })
+         
+    }
+
     calcSlideShowHtml(_slidetype){
+        this.parseSlideShowData();
         var innerHTML = "";
         if (this.slidesEnabled == true){
             this.slidesData.forEach((imgname,i) => {
@@ -102,16 +112,22 @@ class Project{
     }
 
     calcLinksBlockHtml(){
+        this.parseLinksData();
         var innerHTML = "";
         // github link
         var link_github = "";
         if (this.data.github != ""){
             link_github = "<div class='animlink'><a href='https://github.com/" +
-            this.data.github + "'" +" target='_blank'><strong>GITHUB REPO</strong></a></div>"
+            this.data.github + "' " +"target='_blank'><strong>GITHUB REPO</strong></a></div>"
         }
-        // demo link
-        // other link
-        innerHTML = link_github;
+        // other links
+        var link_others = "";
+        this.links.forEach(link => {
+            link_others += "<div class='animlink'><a href='" + link[1] + "' " + 
+            "target='_blank'><strong>" + link[0].toUpperCase() + "</strong></a></div>";
+        })
+
+        innerHTML = link_github + link_others;
 
         return innerHTML;
     }
