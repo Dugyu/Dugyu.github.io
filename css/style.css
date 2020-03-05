@@ -11,6 +11,7 @@
     --site-banner-height: 5vh;
     --margin-large: 128px;
     --margin-medium: 64px;
+    --margin-small: 32px;
 }
 
 body
@@ -152,7 +153,7 @@ body
 
 .videoswitch-container{
   display: inline-block;
-  margin: 30px auto 0;
+  margin: var(--margin-small)  auto var(--margin-small);
   font-size: 0;
   border: 1px solid var(--color-dark);
 }
@@ -196,9 +197,11 @@ label{
   top:0;
   left: 0;
   width: 100%;
+  padding-top: 0;
 }
 
 .project-contentvideo{
+  display: block;
   position: relative;
   top:0;
   left: 0;
