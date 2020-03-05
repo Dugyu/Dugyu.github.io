@@ -53,6 +53,21 @@ class SingleProject{
         vis.container.appendChild(detailblock);
     }
 
+
+    createLinksBlock(_wrapperClass){
+        var vis=this;
+        vis.container = document.getElementById(vis.containerId); 
+        var linksblock = document.createElement('div');
+        linksblock.innerHTML = "";
+        linksblock.setAttribute('class', _wrapperClass)
+        this.contentData.forEach(project => {
+            linksblock.innerHTML += project.calcLinksBlockHtml();});
+        if (linksblock.innerHTML != ""){
+            vis.container.appendChild(linksblock);
+        }
+    }
+
+
     createVideoBlock(_wrapperClass){
         var vis=this;
         vis.container = document.getElementById(vis.containerId);
@@ -102,10 +117,6 @@ class SingleProject{
         "<label for='videoswitch-longvideo'>Long</label>"
         return switchbutton;
     }
-    switchCurrentVideo(){
-        // change usecover
-    }
-
 
     createImageBlock(_wrapperClass){
         var vis = this;

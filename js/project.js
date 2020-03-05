@@ -101,6 +101,21 @@ class Project{
         return innerHTML;
     }
 
+    calcLinksBlockHtml(){
+        var innerHTML = "";
+        // github link
+        var link_github = "";
+        if (this.data.github != ""){
+            link_github = "<div class='animlink'><a href='https://github.com/" +
+            this.data.github + "'" +" target='_blank'><strong>GITHUB REPO</strong></a></div>"
+        }
+        // demo link
+        // other link
+        innerHTML = link_github;
+
+        return innerHTML;
+    }
+
     calcVideoBlockHtml(_useCover){
         var innerHTML = "";
         var type = "NA";

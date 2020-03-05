@@ -242,6 +242,7 @@ class Siteframe{
         singleProject.createAbstractBlock();
         singleProject.createProjectSlides("singleproject-slide", "project-primary-slide");
         singleProject.createDetailsBlock();
+        singleProject.createLinksBlock("project-linksblock")
         singleProject.createVideoBlock("project-videoblock");
     }
 

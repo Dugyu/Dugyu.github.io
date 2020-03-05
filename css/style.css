@@ -142,11 +142,21 @@ body
   font-family: 'Lato';
   font-weight: 300;
   font-size: medium;
-  margin-bottom: 128px;
+  margin-bottom:  var(--margin-large);
 }
 
 .project-detailblock p{
-  margin-bottom: 64px;
+  margin-bottom: var(--margin-medium);
+}
+
+/*Single Project Links Block*/
+
+.project-linksblock{
+  margin-bottom: var(--margin-medium);
+}
+
+.project-linksblock a{
+  letter-spacing: 5px;  
 }
 
 /*Single Project Video Block*/
