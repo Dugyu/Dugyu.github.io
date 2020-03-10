@@ -172,10 +172,12 @@ class Project{
             innerHTML = 
                 "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
                     + "alt='" + this.data.cover_img + "' " + "class='project-cover'>" + 
-            "<div class='project-title animlink'><h5><a href='" + this.projectPath + "'>" +
+            "<div class='project-title'><h5><a href='" + this.projectPath + "'>" +
              this.data.title.toUpperCase() + "</a></h5></div>" +
             "<div class='project-description'><p>" + this.data.abstract + "</p></div>"
-        }else{
+        }
+        
+        else{
             innerHTML = 
             "<video class='project-cover' loop muted preload='metadata' poster='" + 
                  this.projectPath + "static/"+ this.data.cover_img + "' >" +
@@ -183,8 +185,8 @@ class Project{
             "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "
                 + "type='video/mp4'>" +
             "</video>"+
-            "<div class='project-title animlink'><h5><a href='" + this.projectPath + "'>" +
-             this.data.title.toUpperCase() + "</a></h5></div>" +
+            "<div class='project-title'><div><a href='" + this.projectPath + "'>" +
+             this.data.title.toUpperCase() + "</a></div></div>" +
             "<div class='project-description'><p>" + this.data.abstract + "</p></div>"
         }
         return innerHTML;
