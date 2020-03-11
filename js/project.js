@@ -44,6 +44,7 @@ class Project{
         }
     }
 
+
     addToCatalog(_parentEleId){
         // not used 
         var parentElement = document.getElementById(_parentEleId);
@@ -166,28 +167,42 @@ class Project{
         return innerHTML;
     }
 
+    get projectTitleButton(){
+        var innerHTML =  "<div class='project-title'><div><a href='" + this.projectPath + "'>" +
+        this.data.title.toUpperCase() + "</a></div></div>";
+        return innerHTML;
+    }
+
+    get projectCoverImage(){
+        var innerHTML =  "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
+        + "alt='" + this.data.cover_img + "' " + "class='project-cover'>";
+        return innerHTML;
+    }
+    get projectCoverVideo(){
+        var innerHTML = "<video class='project-cover' loop muted preload='metadata' poster='" + 
+        this.projectPath + "static/"+ this.data.cover_img + "' >" +
+        "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "
+        + "type='video/mp4'>" + "</video>";
+        return innerHTML;
+    }
+
+    get projectInlineDetail(){
+        var innerHTML = "<div class='project-inlinedetail'>" +
+        "<div><span>" + this.data.subtitle + "</span></div>" + "<div><span>" + this.data.type + " | " + 
+        this.data.platform +  " | " + this.data.tech + " | " + this.data.year + "</span></div>"+
+        "</div>"
+        return innerHTML;
+    }
+
     calcCatalogHtml(){
         var innerHTML = ""
         if (this.videoEnabled == false){
-            innerHTML = 
-                "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
-                    + "alt='" + this.data.cover_img + "' " + "class='project-cover'>" + 
-            "<div class='project-title'><h5><a href='" + this.projectPath + "'>" +
-             this.data.title.toUpperCase() + "</a></h5></div>" +
-            "<div class='project-description'><p>" + this.data.abstract + "</p></div>"
+            innerHTML = this.projectCoverImage + this.projectInlineDetail +
+            this.projectTitleButton
         }
-        
         else{
-            innerHTML = 
-            "<video class='project-cover' loop muted preload='metadata' poster='" + 
-                 this.projectPath + "static/"+ this.data.cover_img + "' >" +
-                
-            "<source src='" + this.projectPath + "static/" + this.data.cover_video + "' "
-                + "type='video/mp4'>" +
-            "</video>"+
-            "<div class='project-title'><div><a href='" + this.projectPath + "'>" +
-             this.data.title.toUpperCase() + "</a></div></div>" +
-            "<div class='project-description'><p>" + this.data.abstract + "</p></div>"
+            innerHTML = this.projectCoverVideo + this.projectInlineDetail +
+            this.projectTitleButton;
         }
         return innerHTML;
     }

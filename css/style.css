@@ -2,7 +2,7 @@
     --text-color-main:black;
     --text-color-accent:black;
     --text-color-light:rgb(210,210,210);
-    --text-color-gray:rgb(200,200,200);
+    --text-color-gray:rgb(184,184,184);
     --color-light:white;
     --color-dark:black;
     --button-height:36px;
@@ -12,7 +12,10 @@
     --site-banner-height: 5vh;
     --margin-large: 128px;
     --margin-medium: 64px;
+    --margin-xmedium: 48px;
     --margin-small: 32px;
+    --margin-xsmall: 16px;
+    --margin-xxsmall: 8px;
 }
 
 body
@@ -288,14 +291,26 @@ img.brief-cover{
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 48px;
-  margin-bottom: 128px;
+  margin-top: var(--margin-xmedium);
+  margin-bottom: var(--margin-medium);
   transition: order 0.8s;
 }
 
+.project-inlinedetail{
+ font-family: 'Lato', sans-serif;
+ font-weight: 300;
+ color: var(--text-color-gray);
+ font-size: small;
+ margin-top: var(--margin-xxsmall);
+ width: 100%;
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: row;
+ justify-content: space-between;
+}
 .project-title{
   display: inline-block;
-  margin: var(--margin-medium) auto var(--margin-medium);
+  margin: var(--margin-xmedium) auto var(--margin-medium);
   font-size: 0;
   border: 1px solid var(--color-dark);
 }
