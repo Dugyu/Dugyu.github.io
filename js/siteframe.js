@@ -74,26 +74,6 @@ class Siteframe{
         + "id='sitename-char-logo'" + ">" +
         "</a>"
 
-
-/*
-        var sitename_div =  document.createElement('div');
-        sitename_div.setAttribute('class', "sitename");
-        
-        var sitename_text = document.createElement('h1');
-        sitename_text.setAttribute("class","display-4");
-        sitename_text.setAttribute("id","sitename-logo");
-        sitename_text.innerHTML = "DUGYU";
-        
-        var sitename_img =  document.createElement('img');
-        sitename_img.setAttribute('src',this.path + "static/D_U_G_Y_U.png");
-        sitename_img.setAttribute('class', "sitename_char");
-        sitename_img.setAttribute('id', "sitename-char-logo");
-
-        sitename_div.appendChild(sitename_text);
-        sitename_container.appendChild(sitename_div);  
-        sitename_container.appendChild(sitename_img);
-*/
-
     $(window).scroll(function(){
         if(this.scrollY > 0){
             $('.sitename').attr("class","sitename onscroll");

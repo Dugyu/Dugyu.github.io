@@ -38,6 +38,7 @@ body
   z-index: 100;
   visibility: visible;
   transition: height 0.01s ease, visibility 0.01s ease;
+  cursor: pointer;
 }
 
 .sitename_container.onscroll {
