@@ -114,6 +114,11 @@ class Project{
         return innerHTML;
     }
 
+    calcExplanationHtml(_exptype){
+        var innerHTML = "<p>" + this.data[_exptype] + "</p>";
+        return innerHTML;
+    }
+
     calcLinksBlockHtml(){
         this.parseLinksData();
         var innerHTML = "";

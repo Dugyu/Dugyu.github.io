@@ -98,7 +98,6 @@ class SingleProject{
         vis.contentData.forEach(project => {
             for(var i = 0; i < videoblocks.length; i++) {
                 videoblocks[i].innerHTML = project.calcVideoBlockHtml(_useCover);
-
             }
         });
     }
@@ -107,8 +106,15 @@ class SingleProject{
         var vis=this;
         vis.container = document.getElementById(vis.containerId);
         vis.container.appendChild(this.createExplanationSwitchButton());
+
+        var explanationText = document.createElement('div');
+        explanationText.setAttribute('class','exptext');
+        vis.container.appendChild(explanationText);
+        vis.updateExplanationText('exptext', 'story');
+
         $('input[name=exptype]').change(function(){
             var value = $( 'input[name=exptype]:checked' ).val();
+            vis.updateExplanationText('exptext', value);
             if (value == "result"){
                var label = document.getElementById('expswitch-story');
                 label.setAttribute('class','expswitch-story third-selected');
@@ -119,13 +125,24 @@ class SingleProject{
         });
     }
 
+    updateExplanationText(_wrapperClass,_exptype){
+        var vis=this;
+        var explanationText = document.getElementsByClassName(_wrapperClass);
+        console.log(explanationText);
+        vis.contentData.forEach(project => {
+            for(var i = 0; i < explanationText.length; i++) {
+                explanationText[i].innerHTML = project.calcExplanationHtml(_exptype);
+            }
+        });
+    }
+
     createExplanationSwitchButton(){
         var switchbutton = document.createElement('div');
-        switchbutton.setAttribute('class', 'explanationswitch-container');
+        switchbutton.setAttribute('class', 'expswitch-container');
         switchbutton.innerHTML = 
         "<input type='radio' name='exptype' value='story' id='expswitch-story' class='expswitch-story' checked hidden/>"
         +
-        "<label for='expswitch-story'>Story</label>"
+        "<label for='expswitch-story'>Concept</label>"
         +
         "<input type='radio' name='exptype' value='process' id='expswitch-process' class='expswitch-process' hidden/>"
         +
@@ -136,7 +153,6 @@ class SingleProject{
         "<label for='expswitch-result'>Result</label>"
         return switchbutton;
     }
-
 
 
     createVideoSwitchButton(){

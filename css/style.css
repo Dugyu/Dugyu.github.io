@@ -175,7 +175,7 @@ label{
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 5px;  
-  width: 100px;
+  width: 120px;
   padding: 13px 0;
   margin: 0;
   transition: all 0.3s ease;  
@@ -183,7 +183,7 @@ label{
 
 /*Single Project Explanation Block*/
 /*Switch Button*/
-.explanationswitch-container{
+.expswitch-container{
   display: inline-block;
   margin: var(--margin-small) auto var(--margin-small);
   font-size: 0;
@@ -214,6 +214,14 @@ label{
 .expswitch-result:checked + label{
   color: var(--color-light);
 }
+/*Explanation Text*/
+.exptext {
+  margin-top: var(--margin-small);
+  margin-bottom: var(--margin-small);
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
 
 
 /*Single Project Video Block*/
