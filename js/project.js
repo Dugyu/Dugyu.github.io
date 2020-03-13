@@ -44,6 +44,9 @@ class Project{
         }
     }
 
+    get slidesRatio(){
+        return this.data.img_ratio;
+    }
 
     addToCatalog(_parentEleId){
         // not used 
@@ -93,7 +96,6 @@ class Project{
     calcTitleBlockHtml(){
         var innerHTML = 
         "<h3>" + this.data.title.toUpperCase() + "</h3>";
-        //"<h5>" + this.data.year + " " + this.data.season + "</h5>";
         return innerHTML;
     }
 

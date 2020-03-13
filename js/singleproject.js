@@ -103,6 +103,42 @@ class SingleProject{
         });
     }
 
+    createExplanationBlock(){
+        var vis=this;
+        vis.container = document.getElementById(vis.containerId);
+        vis.container.appendChild(this.createExplanationSwitchButton());
+        $('input[name=exptype]').change(function(){
+            var value = $( 'input[name=exptype]:checked' ).val();
+            if (value == "result"){
+               var label = document.getElementById('expswitch-story');
+                label.setAttribute('class','expswitch-story third-selected');
+            }else{
+                var label = document.getElementById('expswitch-story');
+                label.setAttribute('class','expswitch-story');
+            };
+        });
+    }
+
+    createExplanationSwitchButton(){
+        var switchbutton = document.createElement('div');
+        switchbutton.setAttribute('class', 'explanationswitch-container');
+        switchbutton.innerHTML = 
+        "<input type='radio' name='exptype' value='story' id='expswitch-story' class='expswitch-story' checked hidden/>"
+        +
+        "<label for='expswitch-story'>Story</label>"
+        +
+        "<input type='radio' name='exptype' value='process' id='expswitch-process' class='expswitch-process' hidden/>"
+        +
+        "<label for='expswitch-process'>Process</label>"
+        +
+        "<input type='radio' name='exptype' value='result' id='expswitch-result' class='expswitch-result' hidden/>"
+        +
+        "<label for='expswitch-result'>Result</label>"
+        return switchbutton;
+    }
+
+
+
     createVideoSwitchButton(){
         var switchbutton = document.createElement('div');
         switchbutton.setAttribute('class', 'videoswitch-container');
@@ -138,12 +174,13 @@ class SingleProject{
         var slides = document.createElement('div');
         slides.setAttribute("class", _wrapperClass + "s");
         slides.setAttribute("id", _wrapperId);
+        
         slides.innerHTML = "";
         this.contentData.forEach(project => {
+            slides.style.paddingTop = project.slidesRatio;
             slides.innerHTML += project.calcSlideShowHtml(_wrapperClass)
         });
         vis.container.appendChild(slides);
-        
         this.addSlidesTransition(_wrapperClass, _wrapperId);
     }
 
