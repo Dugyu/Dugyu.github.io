@@ -66,7 +66,16 @@ class Siteframe{
 
         var sitename_container = document.getElementById('sitename-container');
 
-        
+        sitename_container.innerHTML = "<div class='sitename'>"+
+        "<h1 class='display-4' id='sitename-logo'>" + "<a href='/'>DUGYU</a>" + 
+        "</h1>"+ "</div>"+ 
+        "<a href='/'>"+
+        "<img src='" + this.path + "static/D_U_G_Y_U.png" +"' " +"class='sitename_char' " 
+        + "id='sitename-char-logo'" + ">" +
+        "</a>"
+
+
+/*
         var sitename_div =  document.createElement('div');
         sitename_div.setAttribute('class', "sitename");
         
@@ -83,7 +92,7 @@ class Siteframe{
         sitename_div.appendChild(sitename_text);
         sitename_container.appendChild(sitename_div);  
         sitename_container.appendChild(sitename_img);
-
+*/
 
     $(window).scroll(function(){
         if(this.scrollY > 0){

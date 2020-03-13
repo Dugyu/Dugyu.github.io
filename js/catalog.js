@@ -15,7 +15,7 @@ class Catalog{
         this.wrapperClass = _wrapperClass;
         this.initCatalog();
         this.updateCatalog();
-        this.onclick();
+        //this.onclick();
     }
 
     onclick(){
