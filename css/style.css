@@ -158,23 +158,21 @@ body
   font-family: 'Lato';
   font-weight: 300;
   font-size: medium;
-}
-.project-linksblock{
   margin-bottom: var(--margin-medium);
-  display: flex;
-  flex-direction: column;
 }
 
-.project-linksblock a{
+.project-creditsblock a{
   font-size: small;
-  letter-spacing: 5px;
-  padding-left: 5px;  
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding-left: 3px;  
   transition:all 0.3s ease;
 }
-
-.project-linksblock a:hover{
+.project-creditsblock a:hover{
   color: var(--text-color-light);  
 }
+
 
 /*Radio Switch Button Shared*/
 label{
@@ -229,6 +227,10 @@ label{
   margin-bottom: var(--margin-small);
   font-weight: 300;
   font-family: 'Lato', sans-serif;
+  position: relative;
+  width: 80%;
+  left: 10%;
+  text-align: start;
 }
 
 

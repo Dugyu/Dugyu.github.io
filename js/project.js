@@ -63,13 +63,15 @@ class Project{
     }
 
     parseLinksData(){
-        var linkdata = this.data.otherlinks.split('</n>');
         this.links = [];
-        linkdata.forEach(d => {
-           var titlelink = d.split(',');
-           var link = [titlelink[0],titlelink[1]];
-           this.links.push(link);
-        })
+        if(this.data.otherlinks != "NA"){
+            var linkdata = this.data.otherlinks.split('</n>');
+            linkdata.forEach(d => {
+            var titlelink = d.split(',');
+            var link = [titlelink[0],titlelink[1]];
+            this.links.push(link);
+            })
+        }
          
     }
 
@@ -142,6 +144,12 @@ class Project{
         return text;
     }
 
+    get buildwith(){
+        var text = "Platform & Tech: ";
+        text += this.data.platform + ", " +this.data.tech;
+        return text;
+    }    
+    
     get notes(){
         var text = "";
         if (this.data.notes != "NA"){
@@ -149,11 +157,29 @@ class Project{
         }
         return text;
     }
-    get buildwith(){
-        var text = "Platform & Tech: ";
-        text += this.data.platform + ", " +this.data.tech;
-        return text;
+    
+    get linksHtml(){
+        this.parseLinksData();
+        var innerHTML = "";
+        // github link
+        var link_github = "";
+        if (this.data.github != "NA"){
+            link_github += "<br>"; 
+            link_github += "<a href='https://github.com/" +
+            this.data.github + "' " +"target='_blank'><strong>GITHUB REPO</strong></a>"
+        }
+        // other links
+        var link_others = "";
+        this.links.forEach(link => {
+            link_others += "<br>";
+            link_others += "<a href='" + link[1] + "' " + 
+            "target='_blank'><strong>" + link[0].toUpperCase() + "</strong></a>";
+        })
+
+        innerHTML = link_github + link_others;
+        return innerHTML;
     }
+
     calcCreditsHtml(){
         var credits = [this.data.type,this.collaboration];
         if (this.instruction != ""){credits.push(this.instruction);}
@@ -167,7 +193,8 @@ class Project{
             if (i!=0){innerHTML += "<br>";}
             innerHTML += line;
         })
-
+        innerHTML+= this.linksHtml;
+        innerHTML+= "</p>";
         return innerHTML;
     }
 
