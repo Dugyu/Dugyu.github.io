@@ -240,6 +240,7 @@ class Siteframe{
         var singleProject = new SingleProject(this.singleProjectData, this.contentId);
         singleProject.createTitleBlock();
         //singleProject.createAbstractBlock();
+        singleProject.createCreditsBlock("project-creditsblock");
         singleProject.createLinksBlock("project-linksblock")
         singleProject.createProjectSlides("singleproject-slide", "project-primary-slide");
         singleProject.createExplanationBlock();

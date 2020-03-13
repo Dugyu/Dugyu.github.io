@@ -119,6 +119,59 @@ class Project{
         return innerHTML;
     }
 
+    get collaboration(){
+        var text = "Individual Work";
+        if (this.data.collaboration != "Individual"){
+            if(this.data.collaboration.split(',').length > 1){
+                text = "Collaborators: " + this.data.collaboration;
+            }else{
+                text = "Collaborator: " + this.data.collaboration;
+            }
+        }
+        return text;
+    }
+    get instruction(){
+        var text = "";
+        if (this.data.instruction != "NA"){
+            if(this.data.instruction.split(',').length > 1){
+                text = "Instructors: " + this.data.instruction;
+            }else{
+                text = "Instructor: " + this.data.instruction;
+            }
+        }
+        return text;
+    }
+
+    get notes(){
+        var text = "";
+        if (this.data.notes != "NA"){
+            text = this.data.notes;
+        }
+        return text;
+    }
+    get buildwith(){
+        var text = "Platform & Tech: ";
+        text += this.data.platform + ", " +this.data.tech;
+        return text;
+    }
+    calcCreditsHtml(){
+        var credits = [this.data.type,this.collaboration];
+        if (this.instruction != ""){credits.push(this.instruction);}
+        credits.push(this.buildwith);
+        if (this.notes != ""){credits.push(this.notes);}
+
+        
+        var innerHTML = "<p>";
+
+        credits.forEach((line,i) =>{
+            if (i!=0){innerHTML += "<br>";}
+            innerHTML += line;
+        })
+
+        return innerHTML;
+    }
+
+
     calcLinksBlockHtml(){
         this.parseLinksData();
         var innerHTML = "";

@@ -53,6 +53,18 @@ class SingleProject{
         vis.container.appendChild(detailblock);
     }
 
+    createCreditsBlock(_wrapperClass){
+        /*Credits*/
+        var vis = this;
+        vis.container = document.getElementById(vis.containerId);
+        var creditsblock = document.createElement('div');
+        creditsblock.setAttribute('class',_wrapperClass);
+        creditsblock.innerHTML = "";
+        this.contentData.forEach(project => {
+            creditsblock.innerHTML += project.calcCreditsHtml();
+        });
+        vis.container.appendChild(creditsblock);
+    }
 
     createLinksBlock(_wrapperClass){
         var vis=this;
@@ -128,7 +140,6 @@ class SingleProject{
     updateExplanationText(_wrapperClass,_exptype){
         var vis=this;
         var explanationText = document.getElementsByClassName(_wrapperClass);
-        console.log(explanationText);
         vis.contentData.forEach(project => {
             for(var i = 0; i < explanationText.length; i++) {
                 explanationText[i].innerHTML = project.calcExplanationHtml(_exptype);
