@@ -50,7 +50,9 @@ class SingleProject{
         this.contentData.forEach(project => {
             detailblock.innerHTML += project.calcDetailsBlockHtml();
         });
-        vis.container.appendChild(detailblock);
+        if (detailblock.innerHTML != ""){
+            vis.container.appendChild(detailblock);
+        }
     }
 
     createCreditsBlock(_wrapperClass){

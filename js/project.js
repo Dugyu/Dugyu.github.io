@@ -108,12 +108,17 @@ class Project{
     }
 
     calcDetailsBlockHtml(){
-        var paragrahs = this.data.content_details.split("</n>");
-        var innerHTML = "";
-        paragrahs.forEach(p =>{
-            innerHTML += "<p>" + p + "</p>";
-        })
-        return innerHTML;
+        if(this.data.content_details != "NA"){
+            var paragrahs = this.data.content_details.split("</n>");
+            var innerHTML = "";
+            paragrahs.forEach(p =>{
+                innerHTML += "<p>" + p + "</p>";
+            })
+            return innerHTML;
+        }else{
+            return "";
+        }
+       
     }
 
     calcExplanationHtml(_exptype){
