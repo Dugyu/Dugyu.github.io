@@ -152,6 +152,7 @@ body
 
 .project-detailblock p{
   margin-top: var(--margin-medium);
+  text-align: start;
 }
 
 /*Single Project Credits and Links Block*/
