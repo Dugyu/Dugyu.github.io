@@ -230,6 +230,11 @@ label:hover{
   width: 180px;
   border: 1px solid var(--color-dark);
 }
+
+.project-detailblock label:hover{
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
 .project-detailblock input{
   display: none;
   visibility: hidden;
