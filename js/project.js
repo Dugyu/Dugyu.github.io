@@ -107,18 +107,28 @@ class Project{
         return innerHTML;
     }
 
-    calcDetailsBlockHtml(){
-        if(this.data.content_details != "NA"){
-            var paragrahs = this.data.content_details.split("</n>");
-            var innerHTML = "";
-            paragrahs.forEach(p =>{
-                innerHTML += "<p>" + p + "</p>";
-            })
+    calcDetailCollapseHtml(){
+        if (this.data.content_details != "NA" && this.data.content_details != ""){
+            var detailtitle = ((this.data.detail_title == "") ? 'Details' : this.data.detail_title);
+            var innerHTML = "<input id='project-detailcollapse' type='checkbox' checked>" +
+            "<label for='project-detailcollapse'>" + detailtitle.toUpperCase() + "</label>"
             return innerHTML;
         }else{
             return "";
         }
-       
+    }
+    calcDetailsBlockHtml(){
+        if(this.data.content_details != "NA"){
+            var paragrahs = this.data.content_details.split("</n>");
+            var innerHTML = "<div id='project-detailexpand'><section>";
+            paragrahs.forEach(p =>{
+                innerHTML += "<p>" + p + "</p>";
+            })
+            innerHTML += "</section></div>"
+            return innerHTML;
+        }else{
+            return "";
+        }
     }
 
     calcExplanationHtml(_exptype){
@@ -145,9 +155,7 @@ class Project{
         +
         "<label for='expswitch-result'>"+ this.expswitch[2] + "</label>";
         return innerHTML;
-        
     }
-
 
     get collaboration(){
         var text = "Individual Work";

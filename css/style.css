@@ -138,23 +138,6 @@ body
   text-align: center;
 }
 
-/*Single Project Details Block*/
-.project-detailblock{
-  width: 70%;
-  position: relative;
-  left:15%;
-  font-family: 'Lato';
-  font-weight: 300;
-  font-size: medium;
-  margin-top: var(--margin-small);
-  margin-bottom:  var(--margin-small);
-}
-
-.project-detailblock p{
-  margin-top: var(--margin-medium);
-  text-align: start;
-}
-
 /*Single Project Credits and Links Block*/
 .project-creditsblock{
   font-family: 'Lato';
@@ -189,7 +172,9 @@ label{
   margin: 0;
   transition: all 0.3s ease;  
 }
-
+label:hover{
+ color: var(--text-color-gray);
+}
 /*Single Project Explanation Block*/
 /*Switch Button*/
 .expswitch-container{
@@ -235,7 +220,59 @@ label{
   text-align: start;
 }
 
+/*Single Project Details Block*/
+/*Detail Title Expand/Collapse Button*/
+.project-detailblock{
+  margin-top: var(--margin-medium);
+}
+.project-detailblock label{
+  width: 180px;
+  border: 1px solid var(--color-dark);
+}
+.project-detailblock input{
+  display: none;
+  visibility: hidden;
+}
 
+.project-detailblock label::before{
+  font-weight: bold;
+  font-size: 15px;
+  content: "+";
+  vertical-align: text-top;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+}
+#project-detailexpand {
+  margin-top: 0px;
+  max-height:  0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+#project-detailcollapse:checked ~ #project-detailexpand{
+  margin-top: var(--margin-small);
+  max-height: 256px;
+  overflow: auto;
+}
+#project-detailcollapse:checked ~ label::before {
+  content: "-";
+}
+
+.project-detailblock section{
+  width: 70%;
+  position: relative;
+  left:15%;
+  font-family: 'Lato';
+  font-weight: 300;
+  font-size: medium;
+  margin-bottom:  var(--margin-small);
+}
+.project-detailblock p{
+  margin-top: var(--margin-small);
+  text-align: start;
+}
 
 /*Single Project Video Block*/
 /*Switch Button*/
@@ -266,7 +303,6 @@ label{
 #videoswitch-longvideo:checked + label{
   color: var(--color-light);
 }
-
 
 .project-videoblock{
   position: relative;

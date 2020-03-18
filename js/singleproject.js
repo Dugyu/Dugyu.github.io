@@ -51,6 +51,9 @@ class SingleProject{
             detailblock.innerHTML += project.calcDetailsBlockHtml();
         });
         if (detailblock.innerHTML != ""){
+            this.contentData.forEach(project => {
+                detailblock.innerHTML = project.calcDetailCollapseHtml() + detailblock.innerHTML;
+            });
             vis.container.appendChild(detailblock);
         }
     }
