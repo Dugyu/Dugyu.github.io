@@ -156,18 +156,6 @@ class SingleProject{
         this.contentData.forEach(project => {
             switchbutton.innerHTML = project.calcExplanationSwitchButtonHtml();
         });
-        /* switchbutton.innerHTML = 
-        "<input type='radio' name='exptype' value='story' id='expswitch-story' class='expswitch-story' checked hidden/>"
-        +
-        "<label for='expswitch-story'>Concept</label>"
-        +
-        "<input type='radio' name='exptype' value='process' id='expswitch-process' class='expswitch-process' hidden/>"
-        +
-        "<label for='expswitch-process'>Process</label>"
-        +
-        "<input type='radio' name='exptype' value='result' id='expswitch-result' class='expswitch-result' hidden/>"
-        +
-        "<label for='expswitch-result'>Result</label>" */
         return switchbutton; 
     }
 
