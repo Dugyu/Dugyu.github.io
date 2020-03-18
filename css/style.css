@@ -218,6 +218,7 @@ label:hover{
   width: 80%;
   left: 10%;
   text-align: start;
+  transition: all 0.3s ease-in-out;
 }
 
 /*Single Project Details Block*/
@@ -248,7 +249,7 @@ label:hover{
   margin-top: 0px;
   max-height:  0px;
   overflow: hidden;
-  transition: max-height 0.5s;
+  transition: all 0.5s;
 }
 
 #project-detailcollapse:checked ~ #project-detailexpand{
