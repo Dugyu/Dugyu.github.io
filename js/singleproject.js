@@ -152,7 +152,11 @@ class SingleProject{
     createExplanationSwitchButton(){
         var switchbutton = document.createElement('div');
         switchbutton.setAttribute('class', 'expswitch-container');
-        switchbutton.innerHTML = 
+
+        this.contentData.forEach(project => {
+            switchbutton.innerHTML = project.calcExplanationSwitchButtonHtml();
+        });
+        /* switchbutton.innerHTML = 
         "<input type='radio' name='exptype' value='story' id='expswitch-story' class='expswitch-story' checked hidden/>"
         +
         "<label for='expswitch-story'>Concept</label>"
@@ -163,8 +167,8 @@ class SingleProject{
         +
         "<input type='radio' name='exptype' value='result' id='expswitch-result' class='expswitch-result' hidden/>"
         +
-        "<label for='expswitch-result'>Result</label>"
-        return switchbutton;
+        "<label for='expswitch-result'>Result</label>" */
+        return switchbutton; 
     }
 
 

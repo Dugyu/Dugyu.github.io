@@ -126,6 +126,29 @@ class Project{
         return innerHTML;
     }
 
+    calcExplanationSwitchButtonHtml(){
+        if (this.data.expswitch == ""){
+            this.expswitch = ['Concept','Process','Result'];
+        }else{
+            this.expswitch = this.data.expswitch.split(',');
+        }
+        var innerHTML = 
+        "<input type='radio' name='exptype' value='story' id='expswitch-story' class='expswitch-story' checked hidden/>"
+        +
+        "<label for='expswitch-story'>" + this.expswitch[0] + "</label>"
+        +
+        "<input type='radio' name='exptype' value='process' id='expswitch-process' class='expswitch-process' hidden/>"
+        +
+        "<label for='expswitch-process'>" + this.expswitch[1] + "</label>"
+        +
+        "<input type='radio' name='exptype' value='result' id='expswitch-result' class='expswitch-result' hidden/>"
+        +
+        "<label for='expswitch-result'>"+ this.expswitch[2] + "</label>";
+        return innerHTML;
+        
+    }
+
+
     get collaboration(){
         var text = "Individual Work";
         if (this.data.collaboration != "Individual"){

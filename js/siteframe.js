@@ -47,7 +47,7 @@ class Siteframe{
                     'Github' + "</a>" + 
             "</div>" + 
             "<div class='subfooter_sociallink'>"+
-                "<a href='mailto:guangyudu@gsd.harvard.edu'>" +
+                "<a href='mailto:dugy.guangyu@gmail.com'>" +
                 'Email' + "</a>" + 
             "</div>" +
         "</div>"
