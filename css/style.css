@@ -259,7 +259,7 @@ label:hover{
 
 #project-detailcollapse:checked ~ #project-detailexpand{
   margin-top: var(--margin-small);
-  max-height: 256px;
+  max-height: 300px;
   overflow: auto;
 }
 #project-detailcollapse:checked ~ label::before {
@@ -341,9 +341,8 @@ label:hover{
 /*Single Project Image*/
 .project-imageblock{
   width: 100%;
-  position: relative;
 	padding: 0px;
-	margin-bottom: var(--margin-large);
+	margin-bottom: var(--margin-small);
 }
 
 img.brief-cover{
@@ -633,7 +632,8 @@ top: 23px;
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity .3s, visibility .3s, width .3s;
+    max-width: 600px;
+    transition: all .3s ease-in-out;
     overflow: hidden;
     z-index: 200;
   }
@@ -641,6 +641,7 @@ top: 23px;
     opacity: .92;
     visibility: visible;
     width: 70%;
+    max-width: 600px;
 }
 .overlay_container.open li {
     -webkit-animation: fadeInRight .2s ease forwards;
@@ -649,8 +650,8 @@ top: 23px;
             animation-delay: .3s;
 }
 .overlay_container.open li:nth-of-type(n+1) {
-    -webkit-animation-delay: calc(.05 * n + .3)s;
-            animation-delay: calc(.05 * n + .3)s;
+    -webkit-animation-delay: calc(.05 * n + .2)s;
+            animation-delay: calc(.05 * n + .2)s;
 }
 
 .overlay_container nav {

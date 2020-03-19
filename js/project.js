@@ -13,7 +13,6 @@ class Project{
         this.data = _data;
         this.path = _path;
         this.dataPath = "projects/" + this.data.key.toLowerCase() + "/";
-
     }
 
     get projectPath(){

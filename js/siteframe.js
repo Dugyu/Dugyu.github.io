@@ -243,8 +243,9 @@ class Siteframe{
         singleProject.createTitleBlock();
         singleProject.createAbstractBlock();
         singleProject.createImageBlock("project-imageblock");
+        singleProject.createExplanationBlock();
+        singleProject.createProjectSlides("singleproject-slide", "project-primary-slide");
         singleProject.createDetailsBlock();
-
     }
 
     createContentOfCatalog(){

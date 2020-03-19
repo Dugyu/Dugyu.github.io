@@ -17,7 +17,17 @@ class Brief{
     get projectPath(){
         return this.path + this.dataPath;
     }
+    get slidesEnabled(){
+        if (this.data.content_slides == ""){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
+    get slidesRatio(){
+        return this.data.img_ratio;
+    }
     addLinkOnMenu(_ulNodeId, _totalNum){
         var link = document.createElement("li");
         link.style.height = "calc(100% / " + _totalNum + ")";
@@ -48,12 +58,101 @@ class Brief{
         return innerHTML;
     }
 
-    calcDetailsBlockHtml(){
+    /* calcDetailsBlockHtml(){
         var paragrahs = this.data.content_details.split("<br>");
         var innerHTML = "";
         paragrahs.forEach(p =>{
             innerHTML += "<p>" + p + "</p>";
         })
         return innerHTML;
+    } */
+    calcCreditsHtml(){
+        var credits = [this.data.type,this.collaboration];
+        if (this.instruction != ""){credits.push(this.instruction);}
+        credits.push(this.buildwith);
+        if (this.notes != ""){credits.push(this.notes);}
+
+        
+        var innerHTML = "<p>";
+
+        credits.forEach((line,i) =>{
+            if (i!=0){innerHTML += "<br>";}
+            innerHTML += line;
+        })
+        innerHTML+= this.linksHtml;
+        innerHTML+= "</p>";
+        return innerHTML;
     }
+    parseSlideShowData(){
+        this.slidesData = this.data.content_slides.split(',');
+    }
+    calcSlideShowHtml(_slidetype){
+        this.parseSlideShowData();
+        var innerHTML = "";
+        if (this.slidesEnabled == true){
+            this.slidesData.forEach((imgname,i) => {
+                if (i==0){
+                    innerHTML += "<img class='"+  _slidetype +  " showing' src='" + this.projectPath + "static/"
+                    + imgname + "'" + "alt='" + imgname + "'>"
+                }else{
+                    innerHTML +=  "<img class='"+  _slidetype +  "' src='" + this.projectPath + "static/"
+                    + imgname + "'" + "alt='" + imgname + "'>"
+                }   
+            });
+        }else{
+            innerHTML = "<img src='" + this.projectPath + "static/"+ this.data.cover_img +"' "
+            + "alt='" + this.data.cover_img + "' " + "class='" + _slidetype + " showing'>"; 
+        }
+        return innerHTML;
+    }
+    calcDetailCollapseHtml(){
+        if (this.data.content_details != "NA" && this.data.content_details != ""){
+            var detailtitle = ((this.data.detail_title == "") ? 'Details' : this.data.detail_title);
+            var innerHTML = "<input id='project-detailcollapse' type='checkbox' checked>" +
+            "<label for='project-detailcollapse'>" + detailtitle.toUpperCase() + "</label>"
+            return innerHTML;
+        }else{
+            return "";
+        }
+    }
+    calcDetailsBlockHtml(){
+        if(this.data.content_details != "NA"){
+            var paragrahs = this.data.content_details.split("</n>");
+            var innerHTML = "<div id='project-detailexpand'><section>";
+            paragrahs.forEach(p =>{
+                innerHTML += "<p>" + p + "</p>";
+            })
+            innerHTML += "</section></div>"
+            return innerHTML;
+        }else{
+            return "";
+        }
+    }
+
+    calcExplanationHtml(_exptype){
+        var innerHTML = "<p>" + this.data[_exptype] + "</p>";
+        return innerHTML;
+    }
+
+    calcExplanationSwitchButtonHtml(){
+        if (this.data.expswitch == ""){
+            this.expswitch = ['Concept','Process','Result'];
+        }else{
+            this.expswitch = this.data.expswitch.split(',');
+        }
+        var innerHTML = 
+        "<input type='radio' name='exptype' value='story' id='expswitch-story' class='expswitch-story' checked hidden/>"
+        +
+        "<label for='expswitch-story'>" + this.expswitch[0] + "</label>"
+        +
+        "<input type='radio' name='exptype' value='process' id='expswitch-process' class='expswitch-process' hidden/>"
+        +
+        "<label for='expswitch-process'>" + this.expswitch[1] + "</label>"
+        +
+        "<input type='radio' name='exptype' value='result' id='expswitch-result' class='expswitch-result' hidden/>"
+        +
+        "<label for='expswitch-result'>"+ this.expswitch[2] + "</label>";
+        return innerHTML;
+    }
+
 }
