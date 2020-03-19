@@ -61,17 +61,16 @@ class Project{
         this.slidesData = this.data.content_slides.split(',');
     }
 
-    parseLinksData(){
+    parseLinksData(_linktype){
         this.links = [];
-        if(this.data.otherlinks != "NA"){
-            var linkdata = this.data.otherlinks.split('</n>');
+        if(this.data[_linktype] != "NA"){
+            var linkdata = this.data[_linktype].split('</n>');
             linkdata.forEach(d => {
             var titlelink = d.split(',');
             var link = [titlelink[0],titlelink[1]];
             this.links.push(link);
             })
-        }
-         
+        } 
     }
 
     calcSlideShowHtml(_slidetype){
@@ -193,8 +192,8 @@ class Project{
         return text;
     }
     
-    get linksHtml(){
-        this.parseLinksData();
+    getlinksHtml(){
+        this.parseLinksData('otherlinks');
         var innerHTML = "";
         // github link
         var link_github = "";
@@ -228,14 +227,14 @@ class Project{
             if (i!=0){innerHTML += "<br>";}
             innerHTML += line;
         })
-        innerHTML+= this.linksHtml;
+        innerHTML+= this.getlinksHtml();
         innerHTML+= "</p>";
         return innerHTML;
     }
 
 
     calcLinksBlockHtml(){
-        this.parseLinksData();
+        this.parseLinksData('otherlinks');
         var innerHTML = "";
         // github link
         var link_github = "";
@@ -251,7 +250,6 @@ class Project{
         })
 
         innerHTML = link_github + link_others;
-
         return innerHTML;
     }
 

@@ -58,28 +58,39 @@ class Brief{
         return innerHTML;
     }
 
-    /* calcDetailsBlockHtml(){
-        var paragrahs = this.data.content_details.split("<br>");
+
+    parseLinksData(_linktype){
+        this.links = [];
+        if(this.data[_linktype] != "NA"){
+            var linkdata = this.data[_linktype].split('</n>');
+            linkdata.forEach(d => {
+            var titlelink = d.split(',');
+            var link = [titlelink[0],titlelink[1]];
+            this.links.push(link);
+            })
+        } 
+    }
+    getlinksHtml(){
+        this.parseLinksData('links');
         var innerHTML = "";
-        paragrahs.forEach(p =>{
-            innerHTML += "<p>" + p + "</p>";
+        //links
+        var links = "";
+        this.links.forEach((link,i) => {
+            links += "<br>";
+            links += "<a href='" + this.projectPath + "static/"+ link[1] + "' " + 
+            "target='_blank'><strong>" + link[0].toUpperCase() + "</strong></a>";
         })
+        innerHTML = links;
         return innerHTML;
-    } */
+    }
     calcCreditsHtml(){
-        var credits = [this.data.type,this.collaboration];
-        if (this.instruction != ""){credits.push(this.instruction);}
-        credits.push(this.buildwith);
-        if (this.notes != ""){credits.push(this.notes);}
-
-        
+        var credits = [this.data.abstract];
         var innerHTML = "<p>";
-
         credits.forEach((line,i) =>{
             if (i!=0){innerHTML += "<br>";}
             innerHTML += line;
         })
-        innerHTML+= this.linksHtml;
+        innerHTML+= this.getlinksHtml();
         innerHTML+= "</p>";
         return innerHTML;
     }

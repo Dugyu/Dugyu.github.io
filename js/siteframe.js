@@ -228,7 +228,6 @@ class Siteframe{
         this.singleProjectData = this.projectList.filter(project => project.data.key == _projectKey);
         var singleProject = new SingleProject(this.singleProjectData, this.contentId);
         singleProject.createTitleBlock();
-        //singleProject.createAbstractBlock();
         singleProject.createCreditsBlock("project-creditsblock");
         singleProject.createProjectSlides("singleproject-slide", "project-primary-slide");
         singleProject.createExplanationBlock();
@@ -241,7 +240,8 @@ class Siteframe{
         this.singleBriefData = this.briefList.filter(brief => brief.data.key == _briefKey);
         var singleProject = new SingleProject(this.singleBriefData, this.contentId);
         singleProject.createTitleBlock();
-        singleProject.createAbstractBlock();
+        //singleProject.createAbstractBlock();
+        singleProject.createCreditsBlock("project-creditsblock");
         singleProject.createImageBlock("project-imageblock");
         singleProject.createExplanationBlock();
         singleProject.createProjectSlides("singleproject-slide", "project-primary-slide");
