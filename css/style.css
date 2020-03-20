@@ -221,7 +221,9 @@ label:hover{
   text-align: start;
   transition: all 0.3s ease-in-out;
 }
-
+.exptext a:hover{
+  color: var(--text-color-light);
+}
 /*Single Project Details Block*/
 /*Detail Title Expand/Collapse Button*/
 .project-detailblock{
@@ -260,7 +262,7 @@ label:hover{
 
 #project-detailcollapse:checked ~ #project-detailexpand{
   margin-top: var(--margin-small);
-  max-height: 300px;
+  max-height: 400px;
   overflow: auto;
 }
 #project-detailcollapse:checked ~ label::before {
@@ -634,7 +636,7 @@ top: 23px;
     opacity: 0;
     visibility: hidden;
     max-width: 600px;
-    transition: all .3s ease-in-out;
+    transition: all .3s ease;
     overflow: hidden;
     z-index: 200;
   }
