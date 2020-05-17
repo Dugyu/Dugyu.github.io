@@ -15,6 +15,7 @@ class Siteframe{
         this.briefData = _briefData;
         this.typeClass = _typeClass;
         this.path = _path;
+        this.totalNum = this.catalogData.length + this.briefData.length + 2;
         this.initSiteCommons();
         this.initContentCommons(_typeClass);
         this.initFooter();
@@ -194,16 +195,21 @@ class Siteframe{
         this.briefData.forEach(e => {
             if (e.key != ""){
                 var brief = new Brief(e, this.path, e.data_path);
-                brief.addLinkOnMenu('menu',this.catalogData.length+this.briefData.length);
+                brief.addLinkOnMenu('menu',this.totalNum);
                 this.briefList.push(brief);
             }
 
         })
 
+        // Add Space between HOME/ABOUT  and  Project List
+        var space_li = document.createElement("li");
+        space_li.style.height = "calc(200% / " + this.totalNum + ")";
+        ul.appendChild(space_li);
+
         this.catalogData.forEach(e => {
             if (e.key != ""){
             var project = new Project(e, this.path);
-            project.addLinkOnMenu('menu',this.catalogData.length+this.briefData.length);
+            project.addLinkOnMenu('menu',this.totalNum);
             this.projectList.push(project);
             }
         });
