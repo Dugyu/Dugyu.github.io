@@ -130,7 +130,7 @@ class Project{
     }
 
     calcExplanationHtml(_exptype){
-        var innerHTML = "<p>" + this.data[_exptype] + "</p>";
+        var innerHTML = "<div>" + this.data[_exptype] + "</div>";
         return innerHTML;
     }
 

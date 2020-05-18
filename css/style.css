@@ -224,6 +224,11 @@ label:hover{
 .exptext a:hover{
   color: var(--text-color-light);
 }
+
+.exptext img{
+  display: block;
+  margin: var(--margin-small) auto var(--margin-small);
+}
 /*Single Project Details Block*/
 /*Detail Title Expand/Collapse Button*/
 .project-detailblock{
