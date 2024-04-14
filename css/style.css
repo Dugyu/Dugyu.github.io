@@ -3,6 +3,7 @@
     --text-color-accent:black;
     --text-color-light:rgb(210,210,210);
     --text-color-gray:rgb(184,184,184);
+    --scrollbar-thumb:rgb(238,238,238);
     --color-light:white;
     --color-dark:black;
     --button-height:36px;
@@ -258,6 +259,7 @@ label:hover{
   height: 20px;
   margin-right: 3px;
 }
+
 #project-detailexpand {
   margin-top: 0px;
   max-height:  0px;
@@ -270,6 +272,29 @@ label:hover{
   max-height: 400px;
   overflow: auto;
 }
+
+/* Scroll-Bar Style */
+#project-detailexpand::-webkit-scrollbar {
+  width: 2px; 
+  height: 2px;
+}
+#project-detailexpand::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+#project-detailexpand::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+}
+
+@supports (not selector(::-webkit-scrollbar)) {
+  #project-detailcollapse:checked ~ #project-detailexpand{
+    margin-top: var(--margin-small);
+    max-height: 400px;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+}
+
 #project-detailcollapse:checked ~ label::before {
   content: "-";
 }
